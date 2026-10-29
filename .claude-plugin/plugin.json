@@ -1,0 +1,13 @@
+{
+  "name": "madison",
+  "version": "0.1.0",
+  "description": "Work Madison tickets with your agent: set up your team's rules, pick up a ticket, explore the code, and get a second opinion. Every decision lands on the ticket.",
+  "author": {
+    "name": "Madison",
+    "url": "https://madison.works"
+  },
+  "homepage": "https://madison.works",
+  "repository": "https://github.com/Madison-Inc/skills",
+  "license": "MIT",
+  "keywords": ["madison", "tickets", "product", "workflow"]
+}
