@@ -31,8 +31,13 @@ skill fills it in.
    rules (anything the team always or never does) go in `addRules`, one rule per item.
 5. **Launch stage.** Show the launch stage from `get_setup` and ask whether it is right.
    Only the workspace owner can change it; if `update_setup` refuses, tell the user who can.
-6. **Finish.** Show the saved setup in a short list. The next step is `start-ticket` on
-   the first ticket you want to work.
+6. **Finish.** Show the saved setup in a short list. Then name the next step, which
+   depends on whether the workspace has any tickets yet. Check rather than assume:
+   `list_areas` gives each Area's `recordCount`, and a total of 0 means none.
+   - **It has tickets:** `start-ticket` on the one the user wants to work first.
+   - **It has none:** capture the first one. Ask what problem they want to solve first, and
+     write it up as a Problem with `create_problem` (or in Madison's own chat, with
+     `/problem`). Picking it up with `start-ticket` comes after that.
 
 If `update_setup` is refused because the user is not an owner or admin, say so, and stop
 after showing what you would have saved.

@@ -41,7 +41,9 @@ Cowork's plugin settings.
 npx skills add Madison-Inc/skills
 ```
 
-Then run `setup-madison` once.
+Then run `setup-madison` once. A new workspace has no tickets yet, so start by describing
+the first problem you want to solve: setup-madison offers to write it up as a Problem, and
+`start-ticket` takes it from there.
 
 ## Status
 
