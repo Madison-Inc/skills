@@ -11,6 +11,19 @@ write every decision and finding back onto the ticket so the *why* outlives the 
 | `explore` | Before building: reads the code against the ticket and posts what it found, plus the decisions still open, as a comment. |
 | `review-comment` | When another agent has left a comment (an exploration, a review): explains it with a recommendation per decision, then posts your answers once you approve. |
 
+**Running a skill.** Each agent has its own way:
+
+| Agent | Run a skill |
+| --- | --- |
+| Claude Code | `/madison:start-ticket ABC-12` (plugin skills always carry the plugin's name) |
+| Cowork | `/start-ticket ABC-12` |
+| Cursor | `/start-ticket ABC-12` in Agent chat |
+| Codex | `$start-ticket ABC-12`, or `/skills` to pick one |
+| Any other agent | Run it the way your agent runs skills |
+
+In any agent you can also just ask ("start ticket ABC-12") and it picks the skill. Each
+skill ends by telling you the next step and the exact command for the agent that runs it.
+
 ## Before you start
 
 Connect the Madison MCP server to your agent and sign in:

@@ -43,5 +43,11 @@ Understand the work before anyone builds it. This skill never implements anythin
 4. **Post it as a comment** on the ticket with `create_comment`, before the user answers,
    so the analysis lives on the ticket. @mention the person who asked for the exploration,
    using a handle copied from `list_members` or `list_comments`, never one you made up.
-5. **Show it in chat** in the same order, shorter. The next step is `review-comment` on
-   this comment, in a new session, or answering the open decisions here.
+5. **Show it in chat** in the same order, shorter.
+6. **Hand off.** End your last message with one line naming the next step: `review-comment`
+   on this comment, in the agent the team's `agentRoles` gives it to (if unanswered, give
+   the Claude Code and Cowork forms), with the exact command for that agent:
+   Claude Code `/madison:review-comment <ticket>`; Cowork or Cursor `/review-comment <ticket>`; Codex
+   `$review-comment <ticket>`; any other agent, name the skill in words. No advice about which
+   session to use. Never end
+   without this line.

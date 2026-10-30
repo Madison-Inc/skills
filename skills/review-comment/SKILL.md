@@ -38,5 +38,11 @@ homework. If your agent has no subagents, ask the user to run this skill in a ne
    - Record each answer as a `decisions` entry on the ticket ("We decided …", with
      `chosenAgainst`), and remove the open questions it answers. Ticket admin (status,
      priority, splitting work) goes in the reply, not in decisions.
-5. **Hand off.** Say which agent picks it up next, from the team's `agentRoles` setup if
-   answered, and that it belongs in a new session.
+5. **Hand off.** End your last message with one line naming the next step and the agent
+   that runs it, from the team's `agentRoles` (if unanswered, give the Claude Code and
+   Cowork forms): usually
+   building the change (in Claude Code,
+   for most teams), or `explore` again if the reply raised new questions about the code.
+   Give the exact command where there is a Madison skill for it: Claude Code `/madison:<skill> <ticket>`; Cowork or Cursor `/<skill> <ticket>`; Codex
+   `$<skill> <ticket>`; any other agent, name the skill in words.
+   No advice about which session to use.

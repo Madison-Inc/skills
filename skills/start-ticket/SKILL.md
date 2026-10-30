@@ -31,11 +31,22 @@ description: Pick up an existing Madison ticket (Problem, Initiative, Task or Bu
 3. **Explain it.** In a few sentences: what goes wrong, or what this changes, for the
    person using the product, with the ticket's own example if it has one. Then why, in a
    sentence or two. Then what is already decided.
-4. **Work the open questions.** If the ticket has any, follow `interview.md` in this
-   skill's folder. Discovery questions belong on Problems, approach on Initiatives,
+4. **Work the open questions, one at a time.** These rules hold every time:
+   - Say how many there are, then ask **only the first**, with your recommendation. One
+     question per message.
+   - **Wait for the user's answer.** Record it on the ticket before asking the next.
+   - A question only the code can answer is not the user's: say so, leave it open for
+     `explore`, and move to the next.
+
+   Read `interview.md` in this skill's folder for how to word a recommendation and record
+   an answer. Discovery questions belong on Problems, approach on Initiatives,
    implementation on Tasks and Bugs; if one is on the wrong ticket, say so.
-5. **Set it In Progress** once the user is ready to work it, with the matching `update_*`
-   tool. Do the same for its parents that are still in Backlog.
-6. **Hand off.** Name the next step and say it belongs in a new session so it starts with
-   a clean context: usually `explore` for a Task or Bug, or writing the next ticket down
-   the chain for a Problem or Initiative.
+5. **Set it In Progress** only once the questions the user can answer are answered (or the
+   user says to stop asking), with the matching `update_*` tool. Do the same for its
+   parents that are still in Backlog.
+6. **Hand off.** End your last message with one line naming the next step: the skill, the
+   agent that runs it (from the team's `agentRoles`; if unanswered, give the Claude Code and
+   Cowork forms), and the exact command for that agent: Claude Code `/madison:<skill> <ticket>`; Cowork or Cursor `/<skill> <ticket>`; Codex
+   `$<skill> <ticket>`; any other agent, name the skill in words.
+   No advice about which session to use. The next step is usually `explore` for a Task or Bug, or
+   writing the next ticket down the chain for a Problem or Initiative.
