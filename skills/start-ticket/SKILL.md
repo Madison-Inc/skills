@@ -3,6 +3,8 @@ name: start-ticket
 description: Pick up an existing Madison ticket (Problem, Initiative, Task or Bug) - check it is still relevant, explain it in plain words, work its open questions one at a time, and set it In Progress. Use when the user says to start, pick up or tackle a ticket, or names a ticket to work on.
 ---
 
+This is Madison skills 0.1.3.
+
 # Start a ticket
 
 ## Talk like this
@@ -17,6 +19,10 @@ description: Pick up an existing Madison ticket (Problem, Initiative, Task or Bu
 1. **Load the context, and only what you need.**
    - `get_setup` for the team's rules and launch stage. If most answers are null, say so
      and suggest `setup-madison` after this ticket.
+   - Pass `skillsVersion` to `get_setup`: the version in the "This is Madison skills" line
+     near the top of this file (an unbuilt copy has none: pass nothing). If the answer's
+     `skillsUpdate` is set, show it in one line with your agent's update route from
+     `version-check.md`, then carry on.
    - Find the ticket. Given an id, fetch it with the matching `get_problem`,
      `get_initiative`, `get_task` or `get_bug` and `includeSuperseded: true`. If the type
      is wrong, try the others. Given only words, use `search_records`, show the best match

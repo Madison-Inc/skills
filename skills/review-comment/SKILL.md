@@ -3,6 +3,8 @@ name: review-comment
 description: Explain another agent's comment on a Madison ticket (an exploration, a review, a proposal) in plain words with a recommendation for each open decision, then post the reply and record the decisions once the user approves. Use when the user asks what a comment means, or to review or answer one.
 ---
 
+This is Madison skills 0.1.3.
+
 # Review a comment
 
 A second opinion on work another session did. The review itself runs in a **fresh
@@ -16,8 +18,13 @@ homework. If your agent has no subagents, ask the user to run this skill in a ne
 
 ## Steps
 
-1. **Find the comment.** `list_comments` on the ticket the user names. The target is the
-   latest agent comment unless the user names another. Note its id.
+1. **Find the comment.**
+   - `get_setup`, passing `skillsVersion`: the version in the "This is Madison skills"
+     line near the top of this file (an unbuilt copy has none: pass nothing). If the answer's
+     `skillsUpdate` is set, show it in one line with your agent's update route from
+     `version-check.md`, then carry on.
+   - `list_comments` on the ticket the user names. The target is the latest agent comment
+     unless the user names another. Note its id.
 2. **Review it in a subagent.** Give a fresh subagent the ticket id, the comment id and
    these instructions, and have it return the review as text. It does not talk to the user
    and does not write to Madison.

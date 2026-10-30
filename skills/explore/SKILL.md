@@ -3,6 +3,8 @@ name: explore
 description: Explore the codebase against a Madison ticket before building - read the ticket, its comments and its parents, check the code, and post the findings and the decisions still open as a comment on the ticket. Use when the user asks to explore a ticket, or before implementing a Task or Bug. Does not write code.
 ---
 
+This is Madison skills 0.1.3.
+
 # Explore a ticket
 
 Understand the work before anyone builds it. This skill never implements anything.
@@ -18,6 +20,10 @@ Understand the work before anyone builds it. This skill never implements anythin
 1. **Load the brief.**
    - `get_setup`: the team's rules and launch stage. They decide what counts as a risk;
      pre-live, there are no users to protect.
+   - Pass `skillsVersion` to `get_setup`: the version in the "This is Madison skills" line
+     near the top of this file (an unbuilt copy has none: pass nothing). If the answer's
+     `skillsUpdate` is set, show it in one line with your agent's update route from
+     `version-check.md`, then carry on.
    - The ticket, with the matching `get_task`, `get_bug`, `get_initiative` or
      `get_problem` and `includeSuperseded: true`. A Task's response embeds its Initiative
      and Problems. A Task also returns `resolvedDesignLink`.

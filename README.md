@@ -58,6 +58,33 @@ Then run `setup-madison` once. A new workspace has no tickets yet, so start by d
 the first problem you want to solve: setup-madison offers to write it up as a Problem, and
 `start-ticket` takes it from there.
 
+## Updating
+
+Each skill checks its version with Madison when it starts, and says so in one line when a
+newer one is out. To update:
+
+**Claude Code**
+
+```bash
+claude plugin marketplace update madison
+claude plugin update madison@madison
+```
+
+Then run `/reload-plugins`, or start a new session. Updating the marketplace alone does not
+update the installed plugin. To update automatically instead, turn on auto-update for this
+marketplace: `/plugin` → Marketplaces → madison → Enable auto-update. Claude Code leaves it
+off for marketplaces other than its own.
+
+**Cowork**: download the new `madison-<version>.plugin` from the
+[latest release](https://github.com/Madison-Inc/skills/releases/latest) and upload it in
+Cowork's plugin settings.
+
+**Other agents**:
+
+```bash
+npx skills update
+```
+
 ## Status
 
 Early. Only Claude Code is tested. The skills avoid Claude-only tools in their main steps,

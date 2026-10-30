@@ -3,6 +3,8 @@ name: setup-madison
 description: Record how your team works (branch naming, who merges, when a ticket is Done, where changes can be seen, which agent does what) in Madison, so every Madison skill follows it. Use once per workspace, when the user asks to set up Madison, or when another Madison skill finds the setup unanswered.
 ---
 
+This is Madison skills 0.1.3.
+
 # Set up Madison
 
 Madison's ticket rules are fixed. How your team ships is not: that lives in the workspace's
@@ -19,6 +21,10 @@ skill fills it in.
 
 1. **Read what is there.** Call `get_setup`. Answered fields are kept unless the user
    wants to change them; null fields are the ones to fill.
+   - Pass `skillsVersion` to `get_setup`: the version in the "This is Madison skills" line
+     near the top of this file (an unbuilt copy has none: pass nothing). If the answer's
+     `skillsUpdate` is set, show it in one line with your agent's update route from
+     `version-check.md`, then carry on.
 2. **Work out what you can.** If you are in the team's code repository, read it before
    asking anything: the default branch and recent branch names (`git branch -r`), branch
    protection if a GitHub CLI is available, CI and deploy config (preview deploys, which
