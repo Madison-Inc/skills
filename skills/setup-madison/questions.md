@@ -11,7 +11,7 @@ choose.
 | `whoMerges` | Who merges a pull request? | "the author once checks pass"; "the product lead"; "a reviewer" |
 | `doneWhen` | When is a ticket Done? | "merged to main"; "live in production"; "deployed to staging" |
 | `whereToSeeChange` | Where can a change be seen before it ships? | "a Vercel preview per PR"; "staging"; "locally only" |
-| `whoChecks` | Who checks a change before it ships, and how? | "the product lead tests the preview"; "QA runs the test plan"; "the author" |
+| `whoChecks` | Who reviews the code, and who tests a change before it ships? Is that the same every time, or decided per ticket? | "no review; the author tests"; "a review agent checks the diff, QA runs the test plan"; "a teammate reviews the PR, the product lead tests the preview"; "decided per ticket" |
 | `agentRoles` | Which agent does what? | "Cowork shapes tickets and reviews, Claude Code explores and builds"; "one agent does everything" |
 | `designTool` | Where do designs live? | "Figma"; "Claude Design"; "none yet" |
 | `retroWhen` | When should a retro run? | "after each Initiative ships"; "end of each sprint"; "only when asked" |
