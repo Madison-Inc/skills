@@ -3,7 +3,7 @@ name: setup-madison
 description: Record how your team works (branch naming, who merges, when a ticket is Done, where changes can be seen, which agent does what) in Madison, so every Madison skill follows it. Use once per workspace, when the user asks to set up Madison, or when another Madison skill finds the setup unanswered.
 ---
 
-This is Madison skills 0.1.3.
+This is Madison skills 0.1.6.
 
 # Set up Madison
 
