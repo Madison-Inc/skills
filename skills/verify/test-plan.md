@@ -8,7 +8,7 @@ a tool may rely on them.
 
 One string, starting `[SETUP]`, holding everything a run needs before step 1:
 
-- **Target:** where the change can be seen, from the team's `whereToSeeChange`. If the
+- **Target:** where the change can be seen, from the team's own agent files. If the
   link is only known once it exists (a preview deploy, say), point to the comment on this
   ticket that gives it, rather than writing a link down that may change.
 - **Auth:** reuse the tester's own signed-in session. Never automate a sign-in or write a

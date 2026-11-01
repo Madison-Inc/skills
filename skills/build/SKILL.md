@@ -1,14 +1,15 @@
 ---
 name: build
-description: Build a decided Madison Task or Bug - read the ticket, its comments and parents, set it In Progress, then implement it the way the team's setup and rules say. Use when the user says to build, implement or execute a ticket whose open questions are answered.
+description: Build a decided Madison Task or Bug - read the ticket, its comments and parents, set it In Progress, then implement it the way the team's own agent files say. Use when the user says to build, implement or execute a ticket whose open questions are answered.
 ---
 
-This is Madison skills 0.1.6.
+This is Madison skills 0.1.7.
 
 # Build a ticket
 
 Turn a decided ticket into working code. How your team branches, reviews, commits and
-raises changes is not this skill's to decide: it comes from the team setup and team rules.
+raises changes is not this skill's to decide, and not Madison's: it comes from the team's
+own agent files (CLAUDE.md, AGENTS.md or whatever your agent reads).
 
 ## Talk like this
 
@@ -40,14 +41,13 @@ raises changes is not this skill's to decide: it comes from the team setup and t
    the approach plus the acceptance criteria. Active decisions are binding, and a
    superseded one is never brought back. If the code shows a decision cannot work, stop
    and say so rather than building around it.
-4. **Build it the way the team works.** Every engineering choice comes from the setup and
-   the team rules, and nothing else:
-   - Branching from `branchNaming` and `releaseFlow`; code review from `whoChecks`;
-     raising the change for merge from `releaseFlow` and `whoMerges`; every team rule.
-   - Do what they say, and add no process they do not name. A team with no review gets
-     none.
-   - When an answer you need is blank, ask the user, and suggest `setup-madison` to save
-     it.
+4. **Build it the way the team works.** Every engineering choice (branching, code
+   review, committing, raising the change for merge) comes from the team's own agent
+   files, and nothing else. Madison's team rules cover ticket work, and hold too.
+   - Do what the files say, and add no process they do not name. A team with no review
+   gets none.
+   - When they do not say something you need, ask the user, and suggest they add the
+     answer to their agent files.
    - Follow the code's existing patterns, and run the project's own tests before handing
      off.
    - Write no `testingSteps`: the test plan is `verify`'s.

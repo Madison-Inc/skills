@@ -7,12 +7,12 @@ ticket so the *why* outlives the session.
 
 | Skill | When to use it |
 | --- | --- |
-| `setup-madison` | Once per workspace, and whenever how your team works changes. Records your team's answers (branching, who merges, when a ticket is Done, …) in Madison so every other skill follows them. |
+| `setup-madison` | Once per workspace, and whenever how your team works changes. Records how your team works with Madison (when a ticket is Done, which agent does what, your ticket rules, …) so every other skill follows it. |
 | `start-ticket` | Picking up a ticket: checks it is still relevant, explains it plainly, and works its open questions with you one at a time. |
 | `explore` | Before building: reads the code against the ticket and posts what it found, plus the decisions still open, as a comment. |
 | `review-comment` | When another agent has left a comment (an exploration, a review): explains it with a recommendation per decision, then posts your answers once you approve. |
-| `build` | Once a ticket is decided: sets it In Progress and implements it, branching, reviewing and raising the change the way your setup says. |
-| `verify` | After building: writes a tagged test plan onto the ticket, says where the change can be seen, hands the tests to whoever your setup names, and records the results. |
+| `build` | Once a ticket is decided: sets it In Progress and implements it, branching, reviewing and raising the change the way your own agent files (CLAUDE.md, AGENTS.md…) say. |
+| `verify` | After building: writes a tagged test plan onto the ticket, says where the change can be seen, hands the tests to whoever your agent files name, and records the results. |
 | `ship` | After checking: marks the ticket Done once your team's definition of Done is met, then closes the chain (parent statuses, leftover open questions). Safe to run more than once. |
 
 **Running a skill.** Each agent has its own way:

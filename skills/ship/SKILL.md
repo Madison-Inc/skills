@@ -3,13 +3,14 @@ name: ship
 description: Close out a verified Madison Task or Bug - check whether the team's definition of Done is met, mark the ticket Done only then, and close the chain (parent statuses, leftover open questions, whether the Problem is solved). Safe to run more than once. Use when the user says to ship, close or finish a ticket.
 ---
 
-This is Madison skills 0.1.6.
+This is Madison skills 0.1.7.
 
 # Ship a ticket
 
-End a ticket properly. How your team merges and releases is not this skill's to decide:
-it does only the release steps the team setup gives the agent, and checks Done against the
-team's own `doneWhen`. Run it as often as you like; each run picks up where things stand.
+End a ticket properly. How your team merges and releases is not this skill's to decide,
+and not Madison's: it does only the release steps the team's own agent files (CLAUDE.md,
+AGENTS.md or whatever your agent reads) give the agent, and checks Done against the team's
+`doneWhen` from the Madison setup. Run it as often as you like; each run picks up where things stand.
 
 ## Talk like this
 
@@ -27,9 +28,8 @@ team's own `doneWhen`. Run it as often as you like; each run picks up where thin
      `version-check.md`, then carry on.
    - The ticket, with `get_task` or `get_bug` and `includeSuperseded: true`, and
      `list_comments` on it. The test results are in its comments.
-2. **Do only what the setup gives the agent.** If `releaseFlow`, `whoMerges` or a team
-   rule assigns a step to the agent at this point, do it. Never merge unless `whoMerges`
-   says the agent may.
+2. **Do only what the team's agent files give the agent.** If they assign a release step
+   to the agent at this point, do it. Never merge unless they say the agent may.
 3. **Check `doneWhen`.** Check each part you can reach yourself, and ask the user about the
    rest. If it is blank, ask the user when a ticket is Done, and suggest `setup-madison` to
    save it.

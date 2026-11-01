@@ -1,15 +1,19 @@
 ---
 name: setup-madison
-description: Record how your team works (branch naming, who merges, when a ticket is Done, where changes can be seen, which agent does what) in Madison, so every Madison skill follows it. Use once per workspace, when the user asks to set up Madison, or when another Madison skill finds the setup unanswered.
+description: Record how your team works with Madison (when a ticket is Done, which agent does what, where designs live, when a retro runs, and your ticket rules), so every Madison skill follows it. Use once per workspace, when the user asks to set up Madison, or when another Madison skill finds the setup unanswered.
 ---
 
-This is Madison skills 0.1.6.
+This is Madison skills 0.1.7.
 
 # Set up Madison
 
-Madison's ticket rules are fixed. How your team ships is not: that lives in the workspace's
-**team setup**, which every Madison skill reads with `get_setup` before it starts. This
-skill fills it in.
+Madison's ticket rules are fixed. How your team works with tickets is not: that lives in
+the workspace's **team setup**, which every Madison skill reads with `get_setup` before it
+starts. This skill fills it in.
+
+How your team builds, branches, reviews, merges and releases is not part of it. That lives
+in the team's own agent files (CLAUDE.md, AGENTS.md or whatever your agent reads), which
+the build, verify and ship skills follow.
 
 ## Talk like this
 
@@ -25,17 +29,16 @@ skill fills it in.
      near the top of this file (an unbuilt copy has none: pass nothing). If the answer's
      `skillsUpdate` is set, show it in one line with your agent's update route from
      `version-check.md`, then carry on.
-2. **Work out what you can.** If you are in the team's code repository, read it before
-   asking anything: the default branch and recent branch names (`git branch -r`), branch
-   protection if a GitHub CLI is available, CI and deploy config (preview deploys, which
-   branch deploys), and how tests run. Each inference becomes a *proposed* answer, never
-   a saved one.
+2. **Work out what you can.** If you are in the team's code repository, read its agent
+   files before asking anything: they often say when work counts as done or which agent
+   does what. Each inference becomes a *proposed* answer, never a saved one.
 3. **Ask the rest, one field at a time.** Ask **only one** field per message, with your
    proposed answer as the recommendation, and **wait for the answer** before the next.
    Skip fields already answered. Read `questions.md` in this skill's folder for what each
    field means and example answers, and `interview.md` for how to word a recommendation.
 4. **Save as you go.** Write each confirmed answer with `update_setup` straight away. Team
-   rules (anything the team always or never does) go in `addRules`, one rule per item.
+   rules (anything the team always or never does with tickets) go in `addRules`, one rule
+   per item.
 5. **Launch stage.** Show the launch stage from `get_setup` and ask whether it is right.
    Only the workspace owner can change it; if `update_setup` refuses, tell the user who can.
 6. **Finish.** Show the saved setup in a short list. Then name the next step, which
