@@ -3,7 +3,7 @@ name: verify
 description: Check a built Madison Task or Bug - write a tagged test plan onto the ticket, say where the change can be seen, hand the tests to whoever the team setup names, and record the results. Use when the user says to verify, test or check a ticket after it is built.
 ---
 
-This is Madison skills 0.1.4.
+This is Madison skills 0.1.5.
 
 # Verify a ticket
 
@@ -54,9 +54,11 @@ the tests and where the change can be seen come from the team setup.
    If the ticket is the MVP an Initiative is waiting on (the Initiative decided to build an
    MVP first), also record pass or stop as a `findings` entry on the Initiative ("We found
    …"), against the bar the ticket's success metric sets.
-6. **Hand off.** End your last message with one line naming the next step, in the agent
-   the team's `agentRoles` gives it to (if unanswered, give the Claude Code and Cowork
-   forms): `ship` once every step has passed, or `build` to fix a failure. Give the exact
+6. **Hand off, only once the results are recorded.** While tests are still to run, say
+   what you are waiting for and name no next step. Then end your last message with one
+   line naming the next step, in the agent the team's `agentRoles` gives it to (only that
+   agent's command; the Claude Code and Cowork forms both only when `agentRoles` is
+   blank): `ship` once every step has passed, or `build` to fix a failure. Give the exact
    command: Claude Code `/madison:<skill> <ticket>`; Cowork or Cursor `/<skill> <ticket>`;
    Codex `$<skill> <ticket>`; any other agent, name the skill in words. No advice about
    which session to use.

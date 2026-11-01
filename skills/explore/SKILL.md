@@ -3,7 +3,7 @@ name: explore
 description: Explore the codebase against a Madison ticket before building - read the ticket, its comments and its parents, check the code, and post the findings and the decisions still open as a comment on the ticket. Use when the user asks to explore a ticket, or before implementing a Task or Bug. Does not write code.
 ---
 
-This is Madison skills 0.1.4.
+This is Madison skills 0.1.5.
 
 # Explore a ticket
 
@@ -51,8 +51,9 @@ Understand the work before anyone builds it. This skill never implements anythin
    using a handle copied from `list_members` or `list_comments`, never one you made up.
 5. **Show it in chat** in the same order, shorter.
 6. **Hand off.** End your last message with one line naming the next step: `review-comment`
-   on this comment, in the agent the team's `agentRoles` gives it to (if unanswered, give
-   the Claude Code and Cowork forms), with the exact command for that agent:
+   on this comment, in the agent the team's `agentRoles` gives it to (only that agent's
+   command; the Claude Code and Cowork forms both only when `agentRoles` is blank), with
+   the exact command for that agent:
    Claude Code `/madison:review-comment <ticket>`; Cowork or Cursor `/review-comment <ticket>`; Codex
    `$review-comment <ticket>`; any other agent, name the skill in words. No advice about which
    session to use. Never end

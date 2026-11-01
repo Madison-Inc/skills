@@ -3,7 +3,7 @@ name: start-ticket
 description: Pick up an existing Madison ticket (Problem, Initiative, Task or Bug) - check it is still relevant, explain it in plain words, work its open questions one at a time, and set it In Progress. Use when the user says to start, pick up or tackle a ticket, or names a ticket to work on.
 ---
 
-This is Madison skills 0.1.3.
+This is Madison skills 0.1.5.
 
 # Start a ticket
 
@@ -51,8 +51,10 @@ This is Madison skills 0.1.3.
    user says to stop asking), with the matching `update_*` tool. Do the same for its
    parents that are still in Backlog.
 6. **Hand off.** End your last message with one line naming the next step: the skill, the
-   agent that runs it (from the team's `agentRoles`; if unanswered, give the Claude Code and
-   Cowork forms), and the exact command for that agent: Claude Code `/madison:<skill> <ticket>`; Cowork or Cursor `/<skill> <ticket>`; Codex
-   `$<skill> <ticket>`; any other agent, name the skill in words.
-   No advice about which session to use. The next step is usually `explore` for a Task or Bug, or
-   writing the next ticket down the chain for a Problem or Initiative.
+   agent the team's `agentRoles` gives it to (only that agent's command; the Claude Code
+   and Cowork forms both only when `agentRoles` is blank), and the exact command for that
+   agent: Claude Code `/madison:<skill> <ticket>`; Cowork or Cursor `/<skill> <ticket>`;
+   Codex `$<skill> <ticket>`; any other agent, name the skill in words. No advice about
+   which session to use. For a Task or Bug the next step is `build` when its decisions are
+   settled, otherwise `explore`; for a Problem or Initiative it is writing the next ticket
+   down the chain.

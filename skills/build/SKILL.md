@@ -3,7 +3,7 @@ name: build
 description: Build a decided Madison Task or Bug - read the ticket, its comments and parents, set it In Progress, then implement it the way the team's setup and rules say. Use when the user says to build, implement or execute a ticket whose open questions are answered.
 ---
 
-This is Madison skills 0.1.4.
+This is Madison skills 0.1.5.
 
 # Build a ticket
 
@@ -50,14 +50,15 @@ raises changes is not this skill's to decide: it comes from the team setup and t
      it.
    - Follow the code's existing patterns, and run the project's own tests before handing
      off.
+   - Write no `testingSteps`: the test plan is `verify`'s.
 5. **Write back what you learned.** A choice made while building is a `decisions` entry
    ("We decided …", with `chosenAgainst`); something the code showed is a `findings` entry
    ("We found …"). Work that spans several tickets updates each one on its own.
 6. **Hand off.** Say what was built and where it stands. End your last message with one
    line naming the next step: `verify`, in the agent the team's `agentRoles` gives it to
-   (if unanswered, give the Claude Code and Cowork forms), with the exact command for that
-   agent: Claude Code `/madison:verify <ticket>`; Cowork or Cursor `/verify <ticket>`; Codex
-   `$verify <ticket>`; any other agent, name the skill in words. No advice about which
-   session to use.
+   (only that agent's command; the Claude Code and Cowork forms both only when
+   `agentRoles` is blank), with the exact command for that agent: Claude Code
+   `/madison:verify <ticket>`; Cowork or Cursor `/verify <ticket>`; Codex `$verify <ticket>`;
+   any other agent, name the skill in words. No advice about which session to use.
 
 Never mark the ticket Done here. That is `ship`'s call.
