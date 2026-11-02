@@ -3,13 +3,15 @@ name: review-comment
 description: Explain another agent's comment on a Madison ticket (an exploration, a review, a proposal) in plain words with a recommendation for each open decision, then post the reply and record the decisions once the user approves. Use when the user asks what a comment means, or to review or answer one.
 ---
 
-This is Madison skills 0.2.0.
+This is Madison skills 0.3.0.
 
 # Review a comment
 
 A second opinion on work another session did. The review itself runs in a **fresh
 subagent**, never in the session that wrote the comment, so it is not marking its own
-homework. If your agent has no subagents, ask the user to run this skill in a new session.
+homework. If your agent has no subagents and this session wrote the comment, ask the user
+to run this skill in a new session. In a new session with no subagents, do step 2's review
+yourself.
 
 ## Talk like this
 

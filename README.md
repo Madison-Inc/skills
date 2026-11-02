@@ -12,6 +12,7 @@ ticket so the *why* outlives the session.
 | `create-bug` | Something is broken: writes it up as a Bug with how to reproduce it, and replies with its link. |
 | `create-initiative` | Choosing how to solve a Problem: writes the direction up as an Initiative linked to it, then works its open questions with you, including whether an MVP comes first. |
 | `create-task` | Planning the work for an Initiative: writes a Task with a user story, linked to it. When the Initiative builds an MVP first, only the MVP Task until it passes. |
+| `review-tasks` | After writing Tasks, before building them: a second opinion that checks each Task against its Initiative's decisions, whether its acceptance criteria can be tested, and the Task rules, then writes the fixes and posts the review once you approve. Give it an Initiative to review all its open Tasks, or one Task. |
 | `start-ticket` | Picking up a ticket: checks it is still relevant, explains it plainly, and works its open questions with you one at a time. |
 | `explore` | Before building: reads the code against the ticket and posts what it found, plus the decisions still open, as a comment. |
 | `review-comment` | When another agent has left a comment (an exploration, a review): explains it with a recommendation per decision, then posts your answers once you approve. |
