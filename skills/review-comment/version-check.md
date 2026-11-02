@@ -6,10 +6,11 @@ as written below: every command, link and click. Never summarise it ("reinstall 
 plugin" is not a route). Then carry on with the skill: an out-of-date skill still runs. If
 you cannot tell which agent you are, give all three.
 
-- **Claude Code:** run `claude plugin marketplace update madison`, then
+- **Claude Code in a terminal or IDE:** run `claude plugin marketplace update madison`, then
   `claude plugin update madison@madison`, then `/reload-plugins` (or start a new session).
   To stop seeing this, turn on auto-update: `/plugin` → Marketplaces → madison → Enable
   auto-update.
-- **Cowork:** on the Plugins page, click **+ Add** → **Manage marketplaces**, then **⋯**
-  next to **skills** → **Check for updates**. Then start a new task.
+- **Cowork, or the Claude desktop app's Code tab:** on the Plugins page, click **+ Add** →
+  **Manage marketplaces**, then **⋯** next to **skills** → **Check for updates**. Then quit
+  the Claude app (⌘Q on a Mac) and reopen it: the new version loads only after a restart.
 - **Other agents** (installed with `npx skills`): run `npx skills update`.
