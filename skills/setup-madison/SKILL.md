@@ -3,7 +3,7 @@ name: setup-madison
 description: Record how your team works with Madison (when a ticket is Done, which agent does what, where designs live, when a retro runs, and your ticket rules), so every Madison skill follows it. Use once per workspace, when the user asks to set up Madison, or when another Madison skill finds the setup unanswered.
 ---
 
-This is Madison skills 0.3.0.
+This is Madison skills 0.3.1.
 
 # Set up Madison
 

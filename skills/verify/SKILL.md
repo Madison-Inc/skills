@@ -3,7 +3,7 @@ name: verify
 description: Check a built Madison Task or Bug - write a tagged test plan onto the ticket, say where the change can be seen, hand the tests to whoever the team's agent files name, and record the results. Use when the user says to verify, test or check a ticket after it is built.
 ---
 
-This is Madison skills 0.3.0.
+This is Madison skills 0.3.1.
 
 # Verify a ticket
 

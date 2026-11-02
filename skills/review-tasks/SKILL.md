@@ -3,7 +3,7 @@ name: review-tasks
 description: Get a second opinion on Madison Tasks before they are built - check each Task against its Initiative's decisions, whether its acceptance criteria can be tested, and the Task rules, with a recommendation per issue, then write the fixes and post the review once the user approves. Use after writing Tasks, or when the user asks to review, check or sanity-check a Task or an Initiative's Tasks.
 ---
 
-This is Madison skills 0.3.0.
+This is Madison skills 0.3.1.
 
 # Review Tasks
 
@@ -33,15 +33,15 @@ subagents, do step 2's review yourself, from the ids alone.
      line near the top of this file (an unbuilt copy has none: pass nothing). If the answer's
      `skillsUpdate` is set, show it, then your agent's update route from `version-check.md`
      in full, word for word (every command, link and click, never a summary), then carry on.
-   - **An Initiative id:** every open Task under it (`list_tasks` with its `initiativeId`;
-     open means not Done or Closed). None open: say so and stop.
-   - **A Task id:** that Task alone. `get_task` gives its Initiative id (none is itself
-     an issue for the review).
-   - **A Bug, Problem or nothing:** say this skill reviews Tasks, and ask which Initiative
-     or Task to review.
-2. **Review in a subagent.** Give a fresh subagent the Initiative id, the Task ids and
-   these instructions. It returns the review as text, does not talk to the user and does
-   not write to Madison.
+   - The ticket id the user gave: an Initiative (review every open Task under it) or a
+     Task (review that Task alone). Fetch nothing else here: the subagent finds the
+     Tasks, so this session never holds them in full. No id: ask for one.
+2. **Review in a subagent.** Give a fresh subagent the ticket id and these instructions.
+   It returns the review as text, does not talk to the user and does not write to Madison.
+   - **Find the Tasks.** An Initiative id: its open Tasks (`list_tasks` with its
+     `initiativeId`; open means not Done or Closed). A Task id: that Task and its
+     Initiative (none is itself an issue). None open, or the id is a Bug or Problem:
+     return just that, and the session tells the user and stops.
    - Fetch the Initiative with `includeSuperseded: true`, `get_setup`, `get_task` for each
      Task, and `list_comments` on all of them. Read the team's agent files (CLAUDE.md,
      AGENTS.md…) for where a change can be seen; if there are none to read, say so and
@@ -62,8 +62,9 @@ subagents, do step 2's review yourself, from the ids alone.
    - Check the claims a recommendation rests on, in the code or in Madison; mark any it
      could not check as the Task's claim, unverified.
    - Return, per Task: id and title; **Verdict** (ready to build, or needs changes); then
-     numbered **Issues**: what is wrong, **Recommend: X** with the exact new text for the
-     field where there is one, and one line of why. Rank by best outcome, never by
+     numbered **Issues**: what is wrong, **Recommend: X** with the field, the exact
+     current text it replaces (quoted as stored) and the exact new text, and one line of
+     why. Rank by best outcome, never by
      effort. No issues: say so in one line.
 3. **Show the review** as it came back. Then ask one question: apply every recommendation
    as it stands, or say which to change or skip. If the user wants to go through them,

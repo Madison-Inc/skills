@@ -1,6 +1,6 @@
 {
   "name": "madison",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Work Madison tickets with your agent: set up your team's rules, write up Problems, Bugs, Initiatives and Tasks, review Tasks before they are built, pick up a ticket, explore the code, get a second opinion, then build, verify and ship it your team's way. Every decision lands on the ticket.",
   "author": {
     "name": "Madison",
