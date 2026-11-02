@@ -3,7 +3,7 @@ name: setup-madison
 description: Record how your team works with Madison (when a ticket is Done, which agent does what, where designs live, when a retro runs, and your ticket rules), so every Madison skill follows it. Use once per workspace, when the user asks to set up Madison, or when another Madison skill finds the setup unanswered.
 ---
 
-This is Madison skills 0.1.7.
+This is Madison skills 0.1.8.
 
 # Set up Madison
 
@@ -27,8 +27,8 @@ the build, verify and ship skills follow.
    wants to change them; null fields are the ones to fill.
    - Pass `skillsVersion` to `get_setup`: the version in the "This is Madison skills" line
      near the top of this file (an unbuilt copy has none: pass nothing). If the answer's
-     `skillsUpdate` is set, show it in one line with your agent's update route from
-     `version-check.md`, then carry on.
+     `skillsUpdate` is set, show it, then your agent's update route from `version-check.md`
+     in full, word for word (every command, link and click, never a summary), then carry on.
 2. **Work out what you can.** If you are in the team's code repository, read its agent
    files before asking anything: they often say when work counts as done or which agent
    does what. Each inference becomes a *proposed* answer, never a saved one.

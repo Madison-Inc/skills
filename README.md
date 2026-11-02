@@ -48,9 +48,10 @@ as a remote MCP server named `madison`.
 /plugin install madison@madison
 ```
 
-**Cowork**: download `madison-<version>.plugin` from the
-[latest release](https://github.com/Madison-Inc/skills/releases/latest) and upload it in
-Cowork's plugin settings.
+**Cowork**: on the Plugins page, click **+ Add** → **Add marketplace**, enter
+`Madison-Inc/skills`, turn **Sync automatically** off and click **Sync**. Then, on the
+**Discover** tab, click **Add** next to **Madison**. (Sync automatically needs the Claude
+GitHub App on the repository, which only Madison can grant, so updates are checked by hand.)
 
 **Other agents** ([skills CLI](https://github.com/vercel-labs/skills)):
 
@@ -64,8 +65,8 @@ the first problem you want to solve: setup-madison offers to write it up as a Pr
 
 ## Updating
 
-Each skill checks its version with Madison when it starts, and says so in one line when a
-newer one is out. To update:
+Each skill checks its version with Madison when it starts. When a newer one is out, it
+says so and gives the full update route for your agent, then carries on. To update:
 
 **Claude Code**
 
@@ -79,9 +80,8 @@ update the installed plugin. To update automatically instead, turn on auto-updat
 marketplace: `/plugin` → Marketplaces → madison → Enable auto-update. Claude Code leaves it
 off for marketplaces other than its own.
 
-**Cowork**: download the new `madison-<version>.plugin` from the
-[latest release](https://github.com/Madison-Inc/skills/releases/latest) and upload it in
-Cowork's plugin settings.
+**Cowork**: on the Plugins page, click **+ Add** → **Manage marketplaces**, then **⋯** next to
+**skills** → **Check for updates**. Then start a new task.
 
 **Other agents**:
 

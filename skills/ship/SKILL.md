@@ -3,7 +3,7 @@ name: ship
 description: Close out a verified Madison Task or Bug - check whether the team's definition of Done is met, mark the ticket Done only then, and close the chain (parent statuses, leftover open questions, whether the Problem is solved). Safe to run more than once. Use when the user says to ship, close or finish a ticket.
 ---
 
-This is Madison skills 0.1.7.
+This is Madison skills 0.1.8.
 
 # Ship a ticket
 
@@ -24,8 +24,8 @@ AGENTS.md or whatever your agent reads) give the agent, and checks Done against 
    - `get_setup`: the team's answers, team rules and launch stage.
    - Pass `skillsVersion` to `get_setup`: the version in the "This is Madison skills" line
      near the top of this file (an unbuilt copy has none: pass nothing). If the answer's
-     `skillsUpdate` is set, show it in one line with your agent's update route from
-     `version-check.md`, then carry on.
+     `skillsUpdate` is set, show it, then your agent's update route from `version-check.md`
+     in full, word for word (every command, link and click, never a summary), then carry on.
    - The ticket, with `get_task` or `get_bug` and `includeSuperseded: true`, and
      `list_comments` on it. The test results are in its comments.
 2. **Do only what the team's agent files give the agent.** If they assign a release step

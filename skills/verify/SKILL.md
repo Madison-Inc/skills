@@ -3,7 +3,7 @@ name: verify
 description: Check a built Madison Task or Bug - write a tagged test plan onto the ticket, say where the change can be seen, hand the tests to whoever the team's agent files name, and record the results. Use when the user says to verify, test or check a ticket after it is built.
 ---
 
-This is Madison skills 0.1.7.
+This is Madison skills 0.1.8.
 
 # Verify a ticket
 
@@ -23,8 +23,8 @@ AGENTS.md or whatever your agent reads), not from Madison.
    - `get_setup`: the team's answers, team rules and launch stage.
    - Pass `skillsVersion` to `get_setup`: the version in the "This is Madison skills" line
      near the top of this file (an unbuilt copy has none: pass nothing). If the answer's
-     `skillsUpdate` is set, show it in one line with your agent's update route from
-     `version-check.md`, then carry on.
+     `skillsUpdate` is set, show it, then your agent's update route from `version-check.md`
+     in full, word for word (every command, link and click, never a summary), then carry on.
    - The ticket, with `get_task` or `get_bug`, and `list_comments` on it. A Task's
      response embeds its Initiative.
 2. **Say where the change can be seen**, from the team's agent files, as a comment on the

@@ -3,7 +3,7 @@ name: build
 description: Build a decided Madison Task or Bug - read the ticket, its comments and parents, set it In Progress, then implement it the way the team's own agent files say. Use when the user says to build, implement or execute a ticket whose open questions are answered.
 ---
 
-This is Madison skills 0.1.7.
+This is Madison skills 0.1.8.
 
 # Build a ticket
 
@@ -24,8 +24,8 @@ own agent files (CLAUDE.md, AGENTS.md or whatever your agent reads).
      users to protect, so add no caution for them.
    - Pass `skillsVersion` to `get_setup`: the version in the "This is Madison skills" line
      near the top of this file (an unbuilt copy has none: pass nothing). If the answer's
-     `skillsUpdate` is set, show it in one line with your agent's update route from
-     `version-check.md`, then carry on.
+     `skillsUpdate` is set, show it, then your agent's update route from `version-check.md`
+     in full, word for word (every command, link and click, never a summary), then carry on.
    - The ticket, with `get_task` or `get_bug` and `includeSuperseded: true`. A Bug is its
      own implementation ticket: never cut a Task to do a Bug's work. A Task's response
      embeds its Initiative and Problems, and `resolvedDesignLink`.
