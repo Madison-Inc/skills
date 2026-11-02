@@ -3,7 +3,7 @@ name: setup-madison
 description: Record how your team works with Madison (when a ticket is Done, which agent does what, where designs live, when a retro runs, and your ticket rules), so every Madison skill follows it. Use once per workspace, when the user asks to set up Madison, or when another Madison skill finds the setup unanswered.
 ---
 
-This is Madison skills 0.1.9.
+This is Madison skills 0.2.0.
 
 # Set up Madison
 
@@ -45,14 +45,14 @@ the build, verify and ship skills follow.
    depends on whether the workspace has any tickets yet. Check rather than assume:
    `list_areas` gives each Area's `recordCount`, and a total of 0 means none.
    - **It has tickets:** `start-ticket` on the one the user wants to work first.
-   - **It has none:** capture the first one. Ask what problem they want to solve first, and
-     write it up as a Problem with `create_problem` (or in Madison's own chat, with
-     `/problem`). Picking it up with `start-ticket` comes after that.
+   - **It has none:** capture the first one with `create-problem`. Ask what problem they
+     want to solve first, then run `create-problem` on their answer (or, in Madison's own
+     chat, `/create-problem`).
 
    End with one line giving the exact command for the agent that runs it:
-   Claude Code `/madison:start-ticket <ticket>`; Cowork or Cursor `/start-ticket <ticket>`; Codex
-   `$start-ticket <ticket>`; any other agent, name the skill in words.
-   No advice about which session to use.
+   Claude Code `/madison:<skill> <ticket>`; Cowork or Cursor `/<skill> <ticket>`; Codex
+   `$<skill> <ticket>`; any other agent, name the skill in words. For `create-problem`
+   there is no ticket yet: leave it off. No advice about which session to use.
 
 If `update_setup` is refused because the user is not an owner or admin, say so, and stop
 after showing what you would have saved.
