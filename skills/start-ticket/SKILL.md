@@ -3,7 +3,7 @@ name: start-ticket
 description: Pick up an existing Madison ticket (Problem, Initiative, Task or Bug) - check it is still relevant, explain it in plain words, work its open questions one at a time, and set it In Progress. Use when the user says to start, pick up or tackle a ticket, or names a ticket to work on.
 ---
 
-This is Madison skills 0.3.2.
+This is Madison skills 0.3.3.
 
 # Start a ticket
 
@@ -31,9 +31,12 @@ This is Madison skills 0.3.2.
      Initiative and its Problems; an Initiative's Problems). Comments are part of the brief:
      they often hold answers, scope calls and earlier explorations. Where a comment
      contradicts the ticket, the ticket wins; raise it as a question.
-2. **Is it still relevant?** Check before explaining: is it already done in the code, or
-   by another ticket (`search_records` with the ticket's own words)? Has a decision on a
-   parent made it moot? If it is no longer relevant, say so with the evidence and stop.
+2. **Is it still relevant?** Check before explaining, as `still-relevant.md` in this
+   skill's folder says: is it already done in the code, or by another ticket? Has a
+   decision on a parent made it moot? **If the verdict is Done or Closed, or keep marked
+   *shipped, unlinked*, say so with the evidence and stop:** start no questions, write no
+   status, and name `still-relevant` as the next step (step 6's hand-off line), which
+   records the verdict. On any other keep, carry on.
 3. **Explain it.** In a few sentences: what goes wrong, or what this changes, for the
    person using the product, with the ticket's own example if it has one. Then why, in a
    sentence or two. Then what is already decided.
@@ -55,6 +58,7 @@ This is Madison skills 0.3.2.
    and Cowork forms both only when `agentRoles` is blank), and the exact command for that
    agent: Claude Code `/madison:<skill> <ticket>`; Cowork or Cursor `/<skill> <ticket>`;
    Codex `$<skill> <ticket>`; any other agent, name the skill in words. No advice about
-   which session to use. For a Task or Bug the next step is `build` when its decisions are
+   which session to use. When step 2 stopped, the next step is `still-relevant`. Otherwise,
+   for a Task or Bug the next step is `build` when its decisions are
    settled, otherwise `explore`; for a Problem or Initiative it is writing the next ticket
    down the chain.

@@ -14,6 +14,7 @@ ticket so the *why* outlives the session.
 | `create-task` | Planning the work for an Initiative: writes a Task with a user story, linked to it. When the Initiative builds an MVP first, only the MVP Task until it passes. |
 | `review-tasks` | After writing Tasks, before building them: a second opinion that checks each Task against its Initiative's decisions, whether its acceptance criteria can be tested, and the Task rules, then writes the fixes and posts the review once you approve. Give it an Initiative to review all its open Tasks, or one Task. |
 | `start-ticket` | Picking up a ticket: checks it is still relevant, explains it plainly, and works its open questions with you one at a time. |
+| `still-relevant` | Wondering whether an open ticket is still needed: checks it against the code, other tickets and its parents' decisions, proposes Done, Closed or keep with the evidence, and records it once you approve. One ticket at a time. |
 | `explore` | Before building: reads the code against the ticket and posts what it found, plus the decisions still open, as a comment. |
 | `review-comment` | When another agent has left a comment (an exploration, a review): explains it with a recommendation per decision, then posts your answers once you approve. |
 | `build` | Once a ticket is decided: sets it In Progress and implements it, branching, reviewing and raising the change the way your own agent files (CLAUDE.md, AGENTS.md…) say. |
