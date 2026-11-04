@@ -3,7 +3,7 @@ name: still-relevant
 description: Re-check one open Madison ticket (Problem, Initiative, Task or Bug) against the code, other tickets and its parents' decisions, and propose Done, Closed or keep with the evidence, then record the verdict once the user approves. Use when the user asks whether a ticket is still relevant, still needed, already done, or can be closed.
 ---
 
-This is Madison skills 0.3.5.
+This is Madison skills 0.3.6.
 
 # Is this ticket still relevant?
 
@@ -21,9 +21,12 @@ has no subagents, do step 2's check yourself, from the ticket id alone.
 
 - **One ticket per run.** Never sweep a list of tickets.
 - **The subagent gets only the ticket id and step 2's instructions.** This session makes
-  no `get_*` or `list_*` call for the ticket itself.
+  no `get_*` or `list_*` call for the ticket itself, except to look an answer up while
+  working its open questions in step 4.
 - **Write nothing until the user approves.** No comment and no status change before then.
 - **Never set Done on a Task or Bug.** A Done verdict hands off to `verify` or `ship`.
+- **An open question blocks Done.** A Done verdict on a Problem or Initiative that still
+  has open questions works them first (step 4). Any still open: the verdict becomes keep.
 
 ## Steps
 
@@ -47,10 +50,18 @@ has no subagents, do step 2's check yourself, from the ticket id alone.
      keep. It is never Closed.
    - **Any other verdict:** record it, or change it.
 4. **Once approved,** in this session:
-   - **Every verdict:** one comment on the ticket (`create_comment`) giving the verdict and
-     the evidence.
+   - **Done on a Problem or Initiative with open questions:** first work them, one at a
+     time, as `interview.md` in this skill's folder says. Clear each one: **answered** (a
+     `decisions` or `findings` entry, then `removeOpenQuestions`), **moot** (removed with
+     `removeOpenQuestions`, saying why), or **moved** to the open ticket (not Done or
+     Closed) that will answer it (`openQuestions` there, then `removeOpenQuestions` here,
+     its text exactly as on this ticket). Any still open: the verdict becomes keep,
+     naming each question left.
+   - **Every verdict:** one comment on the ticket (`create_comment`) giving the final
+     verdict and the evidence.
    - **Closed:** set the ticket Closed with the matching `update_*` tool.
-   - **Done on a Problem or Initiative:** set it Done with the matching `update_*` tool.
+   - **Done on a Problem or Initiative:** set it Done with the matching `update_*` tool,
+     once no open question is left on it.
    - **Done on a Task or Bug:** no status change.
    - **keep:** the comment only.
 5. **Hand off.** End your last message with one line naming the next step, in the agent
@@ -58,8 +69,10 @@ has no subagents, do step 2's check yourself, from the ticket id alone.
    Cowork forms both only when `agentRoles` is blank):
    - **Done on a Task or Bug:** `verify` when the ticket has no passing test results, or
      `ship` when it has.
-   - **keep:** `start-ticket` when the ticket is in Backlog; when it is already in
-     progress, the step where it stands (`explore`, `build`, `verify` or `ship`).
+   - **keep because step 4 left open questions on a Problem or Initiative:** `run-spike`
+     on an Initiative when one needs evidence; otherwise `start-ticket` on the ticket.
+   - **Any other keep:** `start-ticket` when the ticket is in Backlog; when it is already
+     in progress, the step where it stands (`explore`, `build`, `verify` or `ship`).
    - **Closed, or Done on a Problem or Initiative:** say nothing is left on this ticket.
 
    Give the exact command for that agent: Claude Code `/madison:<skill> <ticket>`; Cowork

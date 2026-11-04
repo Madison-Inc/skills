@@ -90,4 +90,5 @@ Fetch only what you do not already hold.
 The ticket id and type, its status, the verdict (and *shipped, unlinked* when it applies),
 one line of why, the evidence (one item per line, each naming its source), what is
 unverified, and, for a Task or Bug whose work is shipped, whether passing test results
-are on the ticket.
+are on the ticket. With a Done verdict, also the ticket's open questions, each word for
+word as on the ticket.

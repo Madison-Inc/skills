@@ -1,9 +1,9 @@
 ---
 name: ship
-description: Close out a verified Madison Task or Bug - check whether the team's definition of Done is met, mark the ticket Done only then, and close the chain (parent statuses, leftover open questions, whether the Problem is solved). Safe to run more than once. Use when the user says to ship, close or finish a ticket.
+description: Close out a verified Madison Task or Bug - check whether the team's definition of Done is met, work every open question left on the ticket, mark it Done only once none is left, and close the chain (parent statuses, each parent's own open questions, whether the Problem is solved). Safe to run more than once. Use when the user says to ship, close or finish a ticket.
 ---
 
-This is Madison skills 0.3.5.
+This is Madison skills 0.3.6.
 
 # Ship a ticket
 
@@ -17,6 +17,21 @@ AGENTS.md or whatever your agent reads) give the agent, and checks Done against 
 - Short and plain. Lead with whether the ticket is Done.
 - Check before you assert: say how you know each part of `doneWhen` is met.
 - Ask in plain prose, never with a multiple-choice question dialog or form.
+
+## These rules hold every time
+
+- **An open question blocks Done**, on the ticket, its Initiative and each Problem. Before
+  any of them is marked Done, each open question on it is cleared one of three ways:
+  - **Answered:** a `decisions` or `findings` entry, then `removeOpenQuestions`.
+  - **Moot:** removed with `removeOpenQuestions`, saying why.
+  - **Moved** to the open ticket (not Done or Closed) that will answer it: `openQuestions`
+    on that ticket, then `removeOpenQuestions` here, its text exactly as on this ticket.
+
+  Any question still open: leave that ticket as it is, name each question left, and say
+  who acts next.
+- **Leave a parent that is already Done or Closed alone:** no status change, and no work
+  on its questions.
+- **ship only ever sets Done.** A ticket that is not Done stays as it is.
 
 ## Steps
 
@@ -37,28 +52,36 @@ AGENTS.md or whatever your agent reads) give the agent, and checks Done against 
      In Progress.
 4. **Re-read every acceptance criterion** against what shipped: the code, and the test
    results on the ticket. Say met or not met for each, with how you know.
-   - **All met:** mark the ticket Done with the matching `update_*` tool.
+   - **All met:** go on to step 5.
    - **Any not met:** say which, and leave the ticket as it is. Ask whether to fix it under
      this ticket or capture it as a new ticket.
-5. **Close the chain**, only when every acceptance criterion is met. Set these yourself,
-   without asking, and say what you changed. A Bug has no parents: go straight to its
-   leftover open questions.
-   - **The Initiative:** Done once every Task linked to it is Done or Closed **and** no
-     work in its scope is still to be written as a Task (an Initiative building an MVP
-     first writes its other Tasks only after the MVP passes). Otherwise leave it, and say
-     what is left.
-   - **Each Problem it solves:** Done once every Initiative linked to it is Done or Closed
-     and nothing on the Problem or its thread says the pain remains. Otherwise leave it,
-     and say why.
-   - **Leftover open questions** on the ticket and on anything you marked Done: work them
-     one at a time, as `interview.md` in this skill's folder says. Each is answered (a
-     `decisions` entry), moot (removed), or still open (moved to the ticket that will
-     answer it).
-6. **Hand off.** End your last message with one line naming the next step, in the agent
+5. **Work the ticket's open questions**, one at a time, as `interview.md` in this skill's
+   folder says, clearing each by the first rule. A question it says to leave open for
+   `run-spike` stays open, so it blocks Done too.
+   - **None left:** mark the ticket Done with the matching `update_*` tool.
+   - **Any left:** name each, leave the ticket as it is, and go to step 7.
+6. **Close the chain**, only once the ticket is Done. Set statuses yourself, without
+   asking, and say what you changed. A Bug has no parents: go to step 7. Work the
+   Initiative first, then each Problem.
+   - **The Initiative:** once every Task linked to it is Done or Closed **and** no work in
+     its scope is still to be written as a Task (an Initiative building an MVP first writes
+     its other Tasks only after the MVP passes), work its open questions as in step 5, then
+     mark it Done once none is left. Otherwise leave it, and say what is left.
+   - **Each Problem it solves:** once every Initiative linked to it is Done or Closed and
+     nothing on the Problem or its thread says the pain remains, work its open questions
+     as in step 5, then mark it Done once none is left. Otherwise leave it, and say why.
+7. **Hand off.** End your last message with one line naming the next step, in the agent
    the team's `agentRoles` gives it to (only that agent's command; the Claude Code and
    Cowork forms both only when `agentRoles` is blank):
    - **This run marked the Initiative Done:** `retro` on the Initiative when the team's
-     `retroWhen` says one is due; otherwise, say nothing is left on it.
+     `retroWhen` says one is due; otherwise, say nothing is left on it. When open
+     questions also kept a Problem open, the same line also names that Problem's next
+     step, as below for a parent kept open.
+   - **Open questions kept the ticket open:** `run-spike` on the ticket when one was left
+     for a spike; otherwise `start-ticket` on the ticket. Then `ship` on it again.
+   - **Open questions kept the Initiative or a Problem open:** `run-spike` on the
+     Initiative when one was left for a spike; otherwise `start-ticket` on that ticket.
+     Then `ship` on this ticket again, which picks the chain up where it stands.
    - **Otherwise:** the next ticket under the Initiative, picked up with `start-ticket`, or
      `ship` again once whatever was outstanding is done.
 

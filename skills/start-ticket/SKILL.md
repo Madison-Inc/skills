@@ -3,7 +3,7 @@ name: start-ticket
 description: Pick up an existing Madison ticket (Problem, Initiative, Task or Bug) - check it is still relevant, explain it in plain words, work its open questions one at a time, and set it In Progress. Use when the user says to start, pick up or tackle a ticket, or names a ticket to work on.
 ---
 
-This is Madison skills 0.3.5.
+This is Madison skills 0.3.6.
 
 # Start a ticket
 
@@ -36,7 +36,9 @@ This is Madison skills 0.3.5.
    decision on a parent made it moot? **If the verdict is Done or Closed, or keep marked
    *shipped, unlinked*, say so with the evidence and stop:** start no questions, write no
    status, and name `still-relevant` as the next step (step 6's hand-off line), which
-   records the verdict. On any other keep, carry on.
+   records the verdict. On any other keep, carry on. **A Done verdict on a ticket that
+   still has open questions is not Done:** an open question blocks Done, so say so and
+   carry on to work them.
 3. **Explain it.** In a few sentences: what goes wrong, or what this changes, for the
    person using the product, with the ticket's own example if it has one. Then why, in a
    sentence or two. Then what is already decided.
@@ -62,7 +64,9 @@ This is Madison skills 0.3.5.
    agent: Claude Code `/madison:<skill> <ticket>`; Cowork or Cursor `/<skill> <ticket>`;
    Codex `$<skill> <ticket>`; any other agent, name the skill in words. No advice about
    which session to use. When step 2 stopped, the next step is `still-relevant`. When a question was left for
-   `run-spike`, the next step is `run-spike` on this ticket. Otherwise,
+   `run-spike`, the next step is `run-spike` on this ticket. When step 2 carried on past a
+   Done verdict, the next step is `ship` for a Task or Bug, or `still-relevant` for a
+   Problem or Initiative. Otherwise,
    for a Task or Bug the next step is `build` when its decisions are
    settled, otherwise `explore`; for a Problem or Initiative it is writing the next ticket
    down the chain.
