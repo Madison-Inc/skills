@@ -3,7 +3,7 @@ name: still-relevant
 description: Re-check one open Madison ticket (Problem, Initiative, Task or Bug) against the code, other tickets and its parents' decisions, and propose Done, Closed or keep with the evidence, then record the verdict once the user approves. Use when the user asks whether a ticket is still relevant, still needed, already done, or can be closed.
 ---
 
-This is Madison skills 0.3.3.
+This is Madison skills 0.3.4.
 
 # Is this ticket still relevant?
 
@@ -60,9 +60,7 @@ has no subagents, do step 2's check yourself, from the ticket id alone.
      `ship` when it has.
    - **keep:** `start-ticket` when the ticket is in Backlog; when it is already in
      progress, the step where it stands (`explore`, `build`, `verify` or `ship`).
-   - **Done on an Initiative:** a retro on it, when the team's `retroWhen` says one is
-     due. Name it in words: there is no retro skill yet. Otherwise, nothing is left.
-   - **Closed, or Done on a Problem:** say nothing is left on this ticket.
+   - **Closed, or Done on a Problem or Initiative:** say nothing is left on this ticket.
 
    Give the exact command for that agent: Claude Code `/madison:<skill> <ticket>`; Cowork
    or Cursor `/<skill> <ticket>`; Codex `$<skill> <ticket>`; any other agent, name the

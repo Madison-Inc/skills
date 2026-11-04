@@ -9,7 +9,7 @@ choose.
 | `doneWhen` | When is a ticket Done? | "merged to main"; "live in production"; "deployed to staging" |
 | `agentRoles` | Which agent does what? | "Cowork shapes tickets and reviews, Claude Code explores and builds"; "one agent does everything" |
 | `designTool` | Where do designs live? | "Figma"; "Claude Design"; "none yet" |
-| `retroWhen` | When should a retro run? | "after each Initiative ships"; "end of each sprint"; "only when asked" |
+| `retroWhen` | When should a retro run? | "after each Initiative is Done"; "only when asked" |
 
 ## Team rules
 

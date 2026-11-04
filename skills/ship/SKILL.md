@@ -3,7 +3,7 @@ name: ship
 description: Close out a verified Madison Task or Bug - check whether the team's definition of Done is met, mark the ticket Done only then, and close the chain (parent statuses, leftover open questions, whether the Problem is solved). Safe to run more than once. Use when the user says to ship, close or finish a ticket.
 ---
 
-This is Madison skills 0.3.3.
+This is Madison skills 0.3.4.
 
 # Ship a ticket
 
@@ -57,8 +57,8 @@ AGENTS.md or whatever your agent reads) give the agent, and checks Done against 
 6. **Hand off.** End your last message with one line naming the next step, in the agent
    the team's `agentRoles` gives it to (only that agent's command; the Claude Code and
    Cowork forms both only when `agentRoles` is blank):
-   - **The Initiative is now Done:** a retro on it, when the team's `retroWhen` says one
-     is due. Name it in words: there is no retro skill yet.
+   - **This run marked the Initiative Done:** `retro` on the Initiative when the team's
+     `retroWhen` says one is due; otherwise, say nothing is left on it.
    - **Otherwise:** the next ticket under the Initiative, picked up with `start-ticket`, or
      `ship` again once whatever was outstanding is done.
 

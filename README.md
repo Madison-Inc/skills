@@ -20,6 +20,7 @@ ticket so the *why* outlives the session.
 | `build` | Once a ticket is decided: sets it In Progress and implements it, branching, reviewing and raising the change the way your own agent files (CLAUDE.md, AGENTS.md…) say. |
 | `verify` | After building: writes a tagged test plan onto the ticket, says where the change can be seen, hands the tests to whoever your agent files name, and records the results. |
 | `ship` | After checking: marks the ticket Done once your team's definition of Done is met, then closes the chain (parent statuses, leftover open questions). Safe to run more than once. |
+| `retro` | Once an Initiative is Done (`ship` hands off when your setup says a retro is due), or whenever you ask: reads how its work went, lists earlier retro fixes still open or that did not hold, and proposes at most two changes, preferring a check, hook or tool rule to another instruction. Raises each approved change as a ticket. |
 
 **Running a skill.** Each agent has its own way:
 
