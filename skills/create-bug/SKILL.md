@@ -3,7 +3,7 @@ name: create-bug
 description: Write up a Madison Bug - something that is broken, with how to reproduce it - save it straight away and reply with its link. Use when the user reports a defect, a regression or something not working as it should, or asks to raise, file or log a bug.
 ---
 
-This is Madison skills 0.3.6.
+This is Madison skills 0.3.7.
 
 # Create a Bug
 
@@ -48,8 +48,10 @@ A Bug is a defect, and it is its own implementation ticket: the fix is worked on
 4. **Reply with the link** (`create-ticket.md` gives the format) and the title in one
    line. If it has open questions, list them.
 5. **Hand off.** End your last message with one line naming the next step, in the agent
-   the team's `agentRoles` gives it to (only that agent's command; the Claude Code and
-   Cowork forms both only when `agentRoles` is blank): `start-ticket` when it has open
+   the team's `agentRoles` gives it to (only that agent's command; `agentRoles` blank: ask
+   it first, recommend an answer and save it only once the user accepts, as
+   `setup-question.md` in this skill's folder says; declined, give both the Claude Code
+   and Cowork forms): `start-ticket` when it has open
    questions, otherwise `explore`. Claude Code `/madison:<skill> <ticket>`; Cowork or
    Cursor `/<skill> <ticket>`; Codex `$<skill> <ticket>`; any other agent, name the skill
    in words. No advice about which session to use.

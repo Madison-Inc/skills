@@ -3,7 +3,7 @@ name: start-ticket
 description: Pick up an existing Madison ticket (Problem, Initiative, Task or Bug) - check it is still relevant, explain it in plain words, work its open questions one at a time, and set it In Progress. Use when the user says to start, pick up or tackle a ticket, or names a ticket to work on.
 ---
 
-This is Madison skills 0.3.6.
+This is Madison skills 0.3.7.
 
 # Start a ticket
 
@@ -17,8 +17,8 @@ This is Madison skills 0.3.6.
 ## Steps
 
 1. **Load the context, and only what you need.**
-   - `get_setup` for the team's rules and launch stage. If most answers are null, say so
-     and suggest `setup-madison` after this ticket.
+   - `get_setup` for the team's rules and launch stage. A blank answer is asked only when
+     a step needs it, as `setup-question.md` in this skill's folder says.
    - Pass `skillsVersion` to `get_setup`: the version in the "This is Madison skills" line
      near the top of this file (an unbuilt copy has none: pass nothing). If the answer's
      `skillsUpdate` is set, show it, then your agent's update route from `version-check.md`
@@ -32,7 +32,9 @@ This is Madison skills 0.3.6.
      they often hold answers, scope calls and earlier explorations. Where a comment
      contradicts the ticket, the ticket wins; raise it as a question.
 2. **Is it still relevant?** Check before explaining, as `still-relevant.md` in this
-   skill's folder says: is it already done in the code, or by another ticket? Has a
+   skill's folder says (it reads `doneWhen`: blank, ask it first, recommend an answer and
+   save it only once the user accepts, as `setup-question.md` says): is it already done in
+   the code, or by another ticket? Has a
    decision on a parent made it moot? **If the verdict is Done or Closed, or keep marked
    *shipped, unlinked*, say so with the evidence and stop:** start no questions, write no
    status, and name `still-relevant` as the next step (step 6's hand-off line), which
@@ -59,8 +61,10 @@ This is Madison skills 0.3.6.
    user says to stop asking), with the matching `update_*` tool. Do the same for its
    parents that are still in Backlog.
 6. **Hand off.** End your last message with one line naming the next step: the skill, the
-   agent the team's `agentRoles` gives it to (only that agent's command; the Claude Code
-   and Cowork forms both only when `agentRoles` is blank), and the exact command for that
+   agent the team's `agentRoles` gives it to (only that agent's command; `agentRoles`
+   blank: ask it first, recommend an answer and save it only once the user accepts, as
+   `setup-question.md` in this skill's folder says; declined, give both the Claude Code
+   and Cowork forms), and the exact command for that
    agent: Claude Code `/madison:<skill> <ticket>`; Cowork or Cursor `/<skill> <ticket>`;
    Codex `$<skill> <ticket>`; any other agent, name the skill in words. No advice about
    which session to use. When step 2 stopped, the next step is `still-relevant`. When a question was left for

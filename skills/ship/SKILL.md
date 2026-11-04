@@ -3,7 +3,7 @@ name: ship
 description: Close out a verified Madison Task or Bug - check whether the team's definition of Done is met, work every open question left on the ticket, mark it Done only once none is left, and close the chain (parent statuses, each parent's own open questions, whether the Problem is solved). Safe to run more than once. Use when the user says to ship, close or finish a ticket.
 ---
 
-This is Madison skills 0.3.6.
+This is Madison skills 0.3.7.
 
 # Ship a ticket
 
@@ -46,8 +46,10 @@ AGENTS.md or whatever your agent reads) give the agent, and checks Done against 
 2. **Do only what the team's agent files give the agent.** If they assign a release step
    to the agent at this point, do it. Never merge unless they say the agent may.
 3. **Check `doneWhen`.** Check each part you can reach yourself, and ask the user about the
-   rest. If it is blank, ask the user when a ticket is Done, and suggest `setup-madison` to
-   save it.
+   rest. **If it is blank,** ask when a ticket is Done before checking anything, with a
+   recommended answer, and save it only once the user accepts or changes it, as
+   `setup-question.md` in this skill's folder says. They decline: save nothing, say Done
+   cannot be checked without it, and stop with the ticket as it is.
    - **Not met:** say what is outstanding and who acts next, and stop. The ticket stays
      In Progress.
 4. **Re-read every acceptance criterion** against what shipped: the code, and the test
@@ -71,10 +73,14 @@ AGENTS.md or whatever your agent reads) give the agent, and checks Done against 
      nothing on the Problem or its thread says the pain remains, work its open questions
      as in step 5, then mark it Done once none is left. Otherwise leave it, and say why.
 7. **Hand off.** End your last message with one line naming the next step, in the agent
-   the team's `agentRoles` gives it to (only that agent's command; the Claude Code and
-   Cowork forms both only when `agentRoles` is blank):
+   the team's `agentRoles` gives it to (only that agent's command; `agentRoles` blank: ask
+   it first, recommend an answer and save it only once the user accepts, as
+   `setup-question.md` in this skill's folder says; declined, give both the Claude Code
+   and Cowork forms):
    - **This run marked the Initiative Done:** `retro` on the Initiative when the team's
-     `retroWhen` says one is due; otherwise, say nothing is left on it. When open
+     `retroWhen` says one is due; otherwise, say nothing is left on it. `retroWhen` blank:
+     ask it, recommend an answer and save it only once the user accepts, as
+     `setup-question.md` says; declined, offer `retro` without saying one is due. When open
      questions also kept a Problem open, the same line also names that Problem's next
      step, as below for a parent kept open.
    - **Open questions kept the ticket open:** `run-spike` on the ticket when one was left

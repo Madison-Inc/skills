@@ -9,7 +9,9 @@ guessed.
 
 Fetch only what you do not already hold.
 
-- `get_setup` for `doneWhen`.
+- `doneWhen`: as the caller gives it, otherwise from `get_setup`. Given as "none", or
+  still blank, it is blank: go by the agent files alone, and never ask for it here (that
+  is the caller's job).
 - The ticket, with the matching `get_problem`, `get_initiative`, `get_task` or `get_bug`
   and `includeSuperseded: true`, and `list_comments` on it and on each parent it embeds.
 - From the team's agent files (CLAUDE.md, AGENTS.md…) and `doneWhen`:

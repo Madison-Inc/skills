@@ -3,7 +3,7 @@ name: still-relevant
 description: Re-check one open Madison ticket (Problem, Initiative, Task or Bug) against the code, other tickets and its parents' decisions, and propose Done, Closed or keep with the evidence, then record the verdict once the user approves. Use when the user asks whether a ticket is still relevant, still needed, already done, or can be closed.
 ---
 
-This is Madison skills 0.3.6.
+This is Madison skills 0.3.7.
 
 # Is this ticket still relevant?
 
@@ -20,9 +20,9 @@ has no subagents, do step 2's check yourself, from the ticket id alone.
 ## These rules hold every time
 
 - **One ticket per run.** Never sweep a list of tickets.
-- **The subagent gets only the ticket id and step 2's instructions.** This session makes
-  no `get_*` or `list_*` call for the ticket itself, except to look an answer up while
-  working its open questions in step 4.
+- **The subagent gets only the ticket id, the team's `doneWhen` and step 2's
+  instructions.** This session makes no `get_*` or `list_*` call for the ticket itself,
+  except to look an answer up while working its open questions in step 4.
 - **Write nothing until the user approves.** No comment and no status change before then.
 - **Never set Done on a Task or Bug.** A Done verdict hands off to `verify` or `ship`.
 - **An open question blocks Done.** A Done verdict on a Problem or Initiative that still
@@ -35,9 +35,13 @@ has no subagents, do step 2's check yourself, from the ticket id alone.
      line near the top of this file (an unbuilt copy has none: pass nothing). If the answer's
      `skillsUpdate` is set, show it, then your agent's update route from `version-check.md`
      in full, word for word (every command, link and click, never a summary), then carry on.
+   - **`doneWhen` blank:** the check needs it, and the subagent cannot ask. Ask it here
+     first, recommend an answer and save it only once the user accepts, as
+     `setup-question.md` in this skill's folder says. Declined: the subagent gets none.
    - The ticket id the user gave. Given only words, use `search_records`, show the best
      match and confirm it. No id and no words: ask for one.
-2. **Check it in a subagent.** Give a fresh subagent the ticket id and these instructions.
+2. **Check it in a subagent.** Give a fresh subagent the ticket id, `doneWhen` (or "none")
+   and these instructions.
    It returns text, does not talk to the user and does not write to Madison.
    - Run the check in `still-relevant.md` in this skill's folder, and return what it says
      to return.
@@ -65,8 +69,10 @@ has no subagents, do step 2's check yourself, from the ticket id alone.
    - **Done on a Task or Bug:** no status change.
    - **keep:** the comment only.
 5. **Hand off.** End your last message with one line naming the next step, in the agent
-   the team's `agentRoles` gives it to (only that agent's command; the Claude Code and
-   Cowork forms both only when `agentRoles` is blank):
+   the team's `agentRoles` gives it to (only that agent's command; `agentRoles` blank: ask
+   it first, recommend an answer and save it only once the user accepts, as
+   `setup-question.md` in this skill's folder says; declined, give both the Claude Code
+   and Cowork forms):
    - **Done on a Task or Bug:** `verify` when the ticket has no passing test results, or
      `ship` when it has.
    - **keep because step 4 left open questions on a Problem or Initiative:** `run-spike`

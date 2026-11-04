@@ -7,7 +7,7 @@
       "name": "madison",
       "source": "./",
       "description": "Work Madison tickets with your agent.",
-      "version": "0.3.6"
+      "version": "0.3.7"
     }
   ]
 }

@@ -3,7 +3,7 @@ name: create-problem
 description: Write up a Madison Problem - the pain a user or the business has, in their words - save it straight away, reply with its link, then work its open questions one at a time. Use when the user describes something going wrong, a pain point or a need, or asks to raise, capture or write up a problem.
 ---
 
-This is Madison skills 0.3.6.
+This is Madison skills 0.3.7.
 
 # Create a Problem
 
@@ -53,7 +53,9 @@ A Problem is the pain, never the fix. Solving it is an Initiative's job, later.
    skill's folder for how to word a recommendation and record an answer.
 6. **Hand off.** End your last message with one line naming the next step: an Initiative
    to solve it, with `create-initiative`, in the agent the team's `agentRoles` gives it
-   to (only that agent's command; the Claude Code and Cowork forms both only when
-   `agentRoles` is blank): Claude Code `/madison:create-initiative <ticket>`; Cowork or
+   to (only that agent's command; `agentRoles` blank: ask it first, recommend an answer
+   and save it only once the user accepts, as `setup-question.md` in this skill's folder
+   says; declined, give both the Claude Code and Cowork forms): Claude Code
+   `/madison:create-initiative <ticket>`; Cowork or
    Cursor `/create-initiative <ticket>`; Codex `$create-initiative <ticket>`; any other
    agent, name the skill in words. No advice about which session to use.

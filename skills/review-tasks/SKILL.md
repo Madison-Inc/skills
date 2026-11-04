@@ -3,7 +3,7 @@ name: review-tasks
 description: Get a second opinion on Madison Tasks before they are built - check each Task against its Initiative's decisions, whether its acceptance criteria can be tested, and the Task rules, with a recommendation per issue, then write the fixes and post the review once the user approves. Use after writing Tasks, or when the user asks to review, check or sanity-check a Task or an Initiative's Tasks.
 ---
 
-This is Madison skills 0.3.6.
+This is Madison skills 0.3.7.
 
 # Review Tasks
 
@@ -79,8 +79,10 @@ subagents, do step 2's review yourself, from the ids alone.
      the verdict, each issue and what was done. A clash between two Tasks goes on both.
      Ticket admin (status, priority, splitting work) goes in the comment, not decisions.
 5. **Hand off.** End your last message with one line naming the next step, in the agent
-   the team's `agentRoles` gives it to (only that agent's command; the Claude Code and
-   Cowork forms both only when `agentRoles` is blank), for the Task to build first:
+   the team's `agentRoles` gives it to (only that agent's command; `agentRoles` blank: ask
+   it first, recommend an answer and save it only once the user accepts, as
+   `setup-question.md` in this skill's folder says; declined, give both the Claude Code
+   and Cowork forms), for the Task to build first:
    `start-ticket` when it has open questions, otherwise `explore`. Claude Code
    `/madison:<skill> <ticket>`; Cowork or Cursor `/<skill> <ticket>`; Codex
    `$<skill> <ticket>`; any other agent, name the skill in words. No advice about which

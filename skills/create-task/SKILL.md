@@ -3,7 +3,7 @@ name: create-task
 description: Write up a Madison Task - one unit of work that implements an Initiative - linked to that Initiative with a user story, save it straight away and reply with its link. Under an Initiative building an MVP first, it writes only the MVP Task until that passes. Use when the user wants to plan, break down or write up work for an Initiative.
 ---
 
-This is Madison skills 0.3.6.
+This is Madison skills 0.3.7.
 
 # Create a Task
 
@@ -65,8 +65,10 @@ a Bug, not a Task: use `create-bug`.
 6. **Reply with the link** (`create-ticket.md` gives the format) and the title in one line.
    If you declined any Tasks under the MVP rule, say which.
 7. **Hand off.** End your last message with one line naming the next step, in the agent
-   the team's `agentRoles` gives it to (only that agent's command; the Claude Code and
-   Cowork forms both only when `agentRoles` is blank): `review-tasks`, for a second
+   the team's `agentRoles` gives it to (only that agent's command; `agentRoles` blank: ask
+   it first, recommend an answer and save it only once the user accepts, as
+   `setup-question.md` in this skill's folder says; declined, give both the Claude Code
+   and Cowork forms): `review-tasks`, for a second
    opinion before anything else (pass the Initiative id when you wrote several Tasks, so
    clashes between them are caught; otherwise the Task id). After the review comes
    `start-ticket` when it has open questions, otherwise `explore`: say so in the same

@@ -3,7 +3,7 @@ name: review-comment
 description: Explain another agent's comment on a Madison ticket (an exploration, a review, a proposal) in plain words with a recommendation for each open decision, then post the reply and record the decisions once the user approves. Use when the user asks what a comment means, or to review or answer one.
 ---
 
-This is Madison skills 0.3.6.
+This is Madison skills 0.3.7.
 
 # Review a comment
 
@@ -48,8 +48,10 @@ subagents, do step 2's review yourself, from the ids alone.
      `chosenAgainst`), and remove the open questions it answers. Ticket admin (status,
      priority, splitting work) goes in the reply, not in decisions.
 5. **Hand off.** End your last message with one line naming the next step and the agent
-   that runs it, from the team's `agentRoles` (only that agent's command; the Claude Code
-   and Cowork forms both only when `agentRoles` is blank). For a Task or Bug: `build` once
+   that runs it, from the team's `agentRoles` (only that agent's command; `agentRoles`
+   blank: ask it first, recommend an answer and save it only once the user accepts, as
+   `setup-question.md` in this skill's folder says; declined, give both the Claude Code
+   and Cowork forms). For a Task or Bug: `build` once
    its decisions are settled, or `explore` again if the reply raised new questions about the code. For a Problem or Initiative:
    writing the next ticket down the chain. Give the exact command where there is a
    Madison skill for it: Claude Code

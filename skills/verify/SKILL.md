@@ -3,7 +3,7 @@ name: verify
 description: Check a built Madison Task or Bug - write a tagged test plan onto the ticket, say where the change can be seen, hand the tests to whoever the team's agent files name, and record the results. Use when the user says to verify, test or check a ticket after it is built.
 ---
 
-This is Madison skills 0.3.6.
+This is Madison skills 0.3.7.
 
 # Verify a ticket
 
@@ -58,8 +58,10 @@ AGENTS.md or whatever your agent reads), not from Madison.
 6. **Hand off, only once the results are recorded.** While tests are still to run, say
    what you are waiting for and name no next step. Then end your last message with one
    line naming the next step, in the agent the team's `agentRoles` gives it to (only that
-   agent's command; the Claude Code and Cowork forms both only when `agentRoles` is
-   blank): `ship` once every step has passed, or `build` to fix a failure. Give the exact
+   agent's command; `agentRoles` blank: ask it first, recommend an answer and save it only
+   once the user accepts, as `setup-question.md` in this skill's folder says; declined,
+   give both the Claude Code and Cowork forms): `ship` once
+   every step has passed, or `build` to fix a failure. Give the exact
    command: Claude Code `/madison:<skill> <ticket>`; Cowork or Cursor `/<skill> <ticket>`;
    Codex `$<skill> <ticket>`; any other agent, name the skill in words. No advice about
    which session to use.

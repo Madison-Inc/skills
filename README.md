@@ -7,7 +7,7 @@ ticket so the *why* outlives the session.
 
 | Skill | When to use it |
 | --- | --- |
-| `setup-madison` | Once per workspace, and whenever how your team works changes. Records how your team works with Madison (when a ticket is Done, which agent does what, your ticket rules, …) so every other skill follows it. |
+| `setup-madison` | Whenever you want to see or change how your team works with Madison (when a ticket is Done, which agent does what, your ticket rules, …), or answer several setup questions at once. You never need it first: each skill asks a blank answer when it needs it. |
 | `create-problem` | Something is going wrong for a user or the business: writes it up as a Problem (the pain, never the fix), replies with its link, then works its open questions with you. |
 | `create-bug` | Something is broken: writes it up as a Bug with how to reproduce it, and replies with its link. |
 | `create-initiative` | Choosing how to solve a Problem: writes the direction up as an Initiative linked to it, then works its open questions with you, including whether an MVP comes first. |
@@ -68,9 +68,10 @@ The Claude desktop app's Code tab uses this same install.
 npx skills add Madison-Inc/skills
 ```
 
-Then run `setup-madison` once. A new workspace has no tickets yet, so start by describing
-the first problem you want to solve: setup-madison hands you to `create-problem`, which
-writes it up.
+A new workspace has no tickets yet, so start by describing the first problem you want to
+solve with `create-problem`, which writes it up. There is no setup to fill in first: the
+first time a skill needs to know how your team works (when a ticket is Done, which agent
+does what), it asks that one question, recommends an answer, and saves it once you accept.
 
 Updating a ticket needs no skill: ask your agent ("update ABC-12: …") and Madison's own
 tools carry the rules.

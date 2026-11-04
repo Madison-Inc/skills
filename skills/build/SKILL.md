@@ -3,7 +3,7 @@ name: build
 description: Build a decided Madison Task or Bug - read the ticket, its comments and parents, set it In Progress, then implement it the way the team's own agent files say. Use when the user says to build, implement or execute a ticket whose open questions are answered.
 ---
 
-This is Madison skills 0.3.6.
+This is Madison skills 0.3.7.
 
 # Build a ticket
 
@@ -56,8 +56,10 @@ own agent files (CLAUDE.md, AGENTS.md or whatever your agent reads).
    ("We found …"). Work that spans several tickets updates each one on its own.
 6. **Hand off.** Say what was built and where it stands. End your last message with one
    line naming the next step: `verify`, in the agent the team's `agentRoles` gives it to
-   (only that agent's command; the Claude Code and Cowork forms both only when
-   `agentRoles` is blank), with the exact command for that agent: Claude Code
+   (only that agent's command; `agentRoles` blank: ask it first, recommend an answer and
+   save it only once the user accepts, as `setup-question.md` in this skill's folder says;
+   declined, give both the Claude Code and Cowork forms), with the exact command for that
+   agent: Claude Code
    `/madison:verify <ticket>`; Cowork or Cursor `/verify <ticket>`; Codex `$verify <ticket>`;
    any other agent, name the skill in words. No advice about which session to use.
 

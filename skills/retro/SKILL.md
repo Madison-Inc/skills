@@ -3,7 +3,7 @@ name: retro
 description: Look back on a Done Madison Initiative - how its work went, which earlier retro fixes are still open or did not hold - and propose at most two changes, preferring a check, hook or tool rule over another instruction, then raise each approved change as a ticket. Use when an Initiative is Done and the team's setup says a retro is due, or when the user asks for a retro or what to learn from an Initiative.
 ---
 
-This is Madison skills 0.3.6.
+This is Madison skills 0.3.7.
 
 # Retro
 
@@ -76,8 +76,10 @@ has no subagents, do step 2's reading yourself, from the Initiative id alone.
      the open retro tickets and fixes that did not hold, and what was raised, with links.
      Nothing approved: say so in the comment.
 5. **Hand off.** End your last message with one line naming the next step, in the agent
-   the team's `agentRoles` gives it to (only that agent's command; the Claude Code and
-   Cowork forms both only when `agentRoles` is blank): `start-ticket` on the first
+   the team's `agentRoles` gives it to (only that agent's command; `agentRoles` blank: ask
+   it first, recommend an answer and save it only once the user accepts, as
+   `setup-question.md` in this skill's folder says; declined, give both the Claude Code
+   and Cowork forms): `start-ticket` on the first
    Initiative raised, or, when nothing was raised, that nothing is left. Claude Code
    `/madison:<skill> <ticket>`; Cowork or Cursor `/<skill> <ticket>`; Codex
    `$<skill> <ticket>`; any other agent, name the skill in words. No advice about which

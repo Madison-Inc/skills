@@ -3,7 +3,7 @@ name: run-spike
 description: Answer a Madison ticket's open questions that need evidence rather than a choice - research or throwaway code - as a Task labelled spike, then write each answer back onto the ticket as a finding or decision once the user approves. Use when start-ticket or create-initiative names it, or when the user asks to spike, prototype, research or find out something before deciding.
 ---
 
-This is Madison skills 0.3.6.
+This is Madison skills 0.3.7.
 
 # Run a spike
 
@@ -79,7 +79,9 @@ from the spike Task's id alone.
    - One comment on the spike Task (`create_comment`): every answer, the evidence, what
      was tried, what was not checked, and what was written to the ticket.
    - Close the spike Task as the team's `doneWhen` and team rules say, **only once it has
-     no open questions**. Clear any it carries first, one at a time: answered (a
+     no open questions**. `doneWhen` blank: ask it first, recommend an answer and save it
+     only once the user accepts, as `setup-question.md` in this skill's folder says. Clear
+     any it carries first, one at a time: answered (a
      `decisions` or `findings` entry, then `removeOpenQuestions`), moot (removed, saying
      why), or moved to the open ticket (not Done or Closed) that will answer it
      (`openQuestions` there, then `removeOpenQuestions` here, its text exactly as on this
@@ -89,8 +91,10 @@ from the spike Task's id alone.
      team rule (`update_setup` with `addRules`). Refused for lack of role: say an owner or
      admin can add it.
 8. **Hand off.** End your last message with one line naming the next step, in the agent
-   the team's `agentRoles` gives it to (only that agent's command; the Claude Code and
-   Cowork forms both only when `agentRoles` is blank): `start-ticket` on the spike Task
+   the team's `agentRoles` gives it to (only that agent's command; `agentRoles` blank: ask
+   it first, recommend an answer and save it only once the user accepts, as
+   `setup-question.md` in this skill's folder says; declined, give both the Claude Code
+   and Cowork forms): `start-ticket` on the spike Task
    when open questions kept it open; `start-ticket` on the ticket that asked while it has
    open questions; otherwise `create-task` for an Initiative,
    `explore` or `build` for a Task (`build` once explored), and `start-ticket` on the

@@ -1,15 +1,16 @@
 ---
 name: setup-madison
-description: Record how your team works with Madison (when a ticket is Done, which agent does what, where designs live, when a retro runs, and your ticket rules), so every Madison skill follows it. Use once per workspace, when the user asks to set up Madison, or when another Madison skill finds the setup unanswered.
+description: Record how your team works with Madison (when a ticket is Done, which agent does what, where designs live, when a retro runs, and your ticket rules), so every Madison skill follows it. Use when the user asks to set up Madison, to see or change how their team works with it, or to answer several setup questions at once. Never needed first: each skill asks a blank answer when it needs it.
 ---
 
-This is Madison skills 0.3.6.
+This is Madison skills 0.3.7.
 
 # Set up Madison
 
 Madison's ticket rules are fixed. How your team works with tickets is not: that lives in
 the workspace's **team setup**, which every Madison skill reads with `get_setup` before it
-starts. This skill fills it in.
+starts. Each skill asks a blank answer the first time it needs it, so no team has to run
+this first. This skill shows the setup, changes answers, and fills several at once.
 
 How your team builds, branches, reviews, merges and releases is not part of it. That lives
 in the team's own agent files (CLAUDE.md, AGENTS.md or whatever your agent reads), which
@@ -34,11 +35,16 @@ the build, verify and ship skills follow.
    does what. Each inference becomes a *proposed* answer, never a saved one.
 3. **Ask the rest, one field at a time.** Ask **only one** field per message, with your
    proposed answer as the recommendation, and **wait for the answer** before the next.
-   Skip fields already answered. Read `questions.md` in this skill's folder for what each
-   field means and example answers, and `interview.md` for how to word a recommendation.
-4. **Save as you go.** Write each confirmed answer with `update_setup` straight away. Team
-   rules (anything the team always or never does with tickets) go in `addRules`, one rule
-   per item.
+   Skip fields already answered. Read `setup-question.md` in this skill's folder for each
+   question, example answers and the fallback recommendation, and `interview.md` for how
+   to word a recommendation.
+4. **Save as you go.** Write each confirmed answer with `update_setup` straight away, and
+   never one the user did not choose.
+   **Team rules:** after the fields, ask "Is there anything your team always or never does
+   with tickets that an agent should know?" Save each as its own rule with `addRules`, in
+   the team's words (e.g. "Never reopen a ticket; a defect that comes back gets a new
+   one"). Rules are for ticket work only: how the team branches, reviews, merges or
+   releases, and facts about the code, belong in the repository's own agent files.
 5. **Launch stage.** Show the launch stage from `get_setup` and ask whether it is right.
    Only the workspace owner can change it; if `update_setup` refuses, tell the user who can.
 6. **Finish.** Show the saved setup in a short list. Then name the next step, which
