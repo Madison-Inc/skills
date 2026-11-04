@@ -3,7 +3,7 @@ name: create-initiative
 description: Write up a Madison Initiative - the direction chosen to solve a Problem - linked to that Problem, save it straight away, reply with its link, then work its open questions one at a time, including whether an MVP comes first. Use when the user wants to solve a Problem, commit to an approach, or asks to raise or write up an initiative.
 ---
 
-This is Madison skills 0.3.4.
+This is Madison skills 0.3.5.
 
 # Create an Initiative
 
@@ -56,13 +56,17 @@ a Task's job, later.
    first, with your recommendation, and wait for the answer. Record each answer on the
    Initiative with `update_initiative` before asking the next. Read `interview.md` in this
    skill's folder for how to word a recommendation and record an answer.
+   - **A question that needs evidence,** not a choice (research, or throwaway code to try
+     something), is not the user's: say so in one line, leave it open for `run-spike`,
+     and move to the next.
    - **The MVP answer.** If a perfect build could still fail, an MVP comes first: record
      "We decided to build an MVP first …" as a decision, the expectation in `hypotheses`,
      and say the MVP Task will carry the pass and stop bar in its success metric and
      acceptance criteria. If not, record that decision too, so `create-task` knows.
-6. **Hand off.** End your last message with one line naming the next step: the first
-   Task (the MVP, if one comes first) with `create-task`, in the agent the team's
+6. **Hand off.** End your last message with one line naming the next step: `run-spike`
+   on this Initiative when a question was left for it; otherwise the first Task (the MVP,
+   if one comes first) with `create-task`, in the agent the team's
    `agentRoles` gives it to (only that agent's command; the Claude Code and Cowork forms
-   both only when `agentRoles` is blank): Claude Code `/madison:create-task <ticket>`;
-   Cowork or Cursor `/create-task <ticket>`; Codex `$create-task <ticket>`; any other
-   agent, name the skill in words. No advice about which session to use.
+   both only when `agentRoles` is blank): Claude Code `/madison:<skill> <ticket>`;
+   Cowork or Cursor `/<skill> <ticket>`; Codex `$<skill> <ticket>`; any other agent,
+   name the skill in words. No advice about which session to use.

@@ -1,13 +1,13 @@
 {
   "name": "madison",
   "owner": { "name": "Madison", "url": "https://madison.works" },
-  "description": "Madison's agent skills: set up your team, write up tickets, pick one up, check one is still relevant, explore the code, get a second opinion, build, verify, ship and run a retro.",
+  "description": "Madison's agent skills: set up your team, write up tickets, pick one up, spike a question that needs evidence, check one is still relevant, explore the code, get a second opinion, build, verify, ship and run a retro.",
   "plugins": [
     {
       "name": "madison",
       "source": "./",
       "description": "Work Madison tickets with your agent.",
-      "version": "0.3.4"
+      "version": "0.3.5"
     }
   ]
 }

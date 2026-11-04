@@ -3,7 +3,7 @@ name: explore
 description: Explore the codebase against a Madison ticket before building - read the ticket, its comments and its parents, check the code, and post the findings and the decisions still open as a comment on the ticket. Use when the user asks to explore a ticket, or before implementing a Task or Bug. Does not write code.
 ---
 
-This is Madison skills 0.3.4.
+This is Madison skills 0.3.5.
 
 # Explore a ticket
 

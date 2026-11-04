@@ -15,6 +15,9 @@ the questions; this file says how to ask them.
 1. **Look it up first.** If the code, the ticket, its comments or a related ticket
    (`search_records`) can answer it, answer it yourself and say where the answer came
    from. Ask only what is genuinely the user's call.
+   A question on an open Initiative or Task (not Done or Closed) that needs evidence a
+   quick look cannot give (research, or throwaway code to try something) is not the
+   user's call either: say so, leave it open for `run-spike`, and move to the next.
 2. **Ask in plain prose.** The options in plain words (A, B, C), then **a clear
    recommendation** and the one or two reasons that decide it. Rank by the best outcome,
    never by how much work it is. Never use a multiple-choice question dialog or form.

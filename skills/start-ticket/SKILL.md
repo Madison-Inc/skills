@@ -3,7 +3,7 @@ name: start-ticket
 description: Pick up an existing Madison ticket (Problem, Initiative, Task or Bug) - check it is still relevant, explain it in plain words, work its open questions one at a time, and set it In Progress. Use when the user says to start, pick up or tackle a ticket, or names a ticket to work on.
 ---
 
-This is Madison skills 0.3.4.
+This is Madison skills 0.3.5.
 
 # Start a ticket
 
@@ -46,6 +46,9 @@ This is Madison skills 0.3.4.
    - **Wait for the user's answer.** Record it on the ticket before asking the next.
    - A question only the code can answer is not the user's: say so, leave it open for
      `explore`, and move to the next.
+   - A question on an Initiative or Task that needs evidence the code cannot give in a
+     minute (research, or throwaway code to try something) is not the user's either:
+     say so in one line, leave it open for `run-spike`, and move to the next.
 
    Read `interview.md` in this skill's folder for how to word a recommendation and record
    an answer. Discovery questions belong on Problems, approach on Initiatives,
@@ -58,7 +61,8 @@ This is Madison skills 0.3.4.
    and Cowork forms both only when `agentRoles` is blank), and the exact command for that
    agent: Claude Code `/madison:<skill> <ticket>`; Cowork or Cursor `/<skill> <ticket>`;
    Codex `$<skill> <ticket>`; any other agent, name the skill in words. No advice about
-   which session to use. When step 2 stopped, the next step is `still-relevant`. Otherwise,
+   which session to use. When step 2 stopped, the next step is `still-relevant`. When a question was left for
+   `run-spike`, the next step is `run-spike` on this ticket. Otherwise,
    for a Task or Bug the next step is `build` when its decisions are
    settled, otherwise `explore`; for a Problem or Initiative it is writing the next ticket
    down the chain.
