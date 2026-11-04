@@ -3,7 +3,7 @@ name: create-initiative
 description: Write up a Madison Initiative - the direction chosen to solve a Problem - linked to that Problem, save it straight away, reply with its link, then work its open questions one at a time, including whether an MVP comes first. Use when the user wants to solve a Problem, commit to an approach, or asks to raise or write up an initiative.
 ---
 
-This is Madison skills 0.3.7.
+This is Madison skills 0.4.0.
 
 # Create an Initiative
 
@@ -65,7 +65,10 @@ a Task's job, later.
      acceptance criteria. If not, record that decision too, so `create-task` knows.
 6. **Hand off.** End your last message with one line naming the next step: `run-spike`
    on this Initiative when a question was left for it; otherwise the first Task (the MVP,
-   if one comes first) with `create-task`, in the agent the team's
+   if one comes first) with `create-task`. `create-design` comes before `create-task`
+   when `designTool` is set and not "none yet" (blank counts as none here: do not ask
+   it), the Initiative has no `designLink`, and its `inScope` changes a screen or
+   anything else users see. Name the step in the agent the team's
    `agentRoles` gives it to (only that agent's command; `agentRoles` blank: ask it first,
    recommend an answer and save it only once the user accepts, as `setup-question.md` in
    this skill's folder says; declined, give both the Claude Code and Cowork forms): Claude

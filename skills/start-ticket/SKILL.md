@@ -3,7 +3,7 @@ name: start-ticket
 description: Pick up an existing Madison ticket (Problem, Initiative, Task or Bug) - check it is still relevant, explain it in plain words, work its open questions one at a time, and set it In Progress. Use when the user says to start, pick up or tackle a ticket, or names a ticket to work on.
 ---
 
-This is Madison skills 0.3.7.
+This is Madison skills 0.4.0.
 
 # Start a ticket
 
@@ -72,5 +72,8 @@ This is Madison skills 0.3.7.
    Done verdict, the next step is `ship` for a Task or Bug, or `still-relevant` for a
    Problem or Initiative. Otherwise,
    for a Task or Bug the next step is `build` when its decisions are
-   settled, otherwise `explore`; for a Problem or Initiative it is writing the next ticket
-   down the chain.
+   settled, otherwise `explore`; for a Problem it is `create-initiative` when it has no
+   open Initiative, otherwise `start-ticket` on that Initiative; for an
+   Initiative it is `create-task`, or `create-design` first when `designTool` is set and
+   not "none yet" (blank counts as none: do not ask it), the Initiative has no
+   `designLink`, and its `inScope` changes a screen or anything else users see.

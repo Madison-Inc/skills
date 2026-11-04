@@ -3,7 +3,7 @@ name: review-tasks
 description: Get a second opinion on Madison Tasks before they are built - check each Task against its Initiative's decisions, whether its acceptance criteria can be tested, and the Task rules, with a recommendation per issue, then write the fixes and post the review once the user approves. Use after writing Tasks, or when the user asks to review, check or sanity-check a Task or an Initiative's Tasks.
 ---
 
-This is Madison skills 0.3.7.
+This is Madison skills 0.4.0.
 
 # Review Tasks
 

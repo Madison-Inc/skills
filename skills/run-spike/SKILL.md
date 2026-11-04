@@ -3,7 +3,7 @@ name: run-spike
 description: Answer a Madison ticket's open questions that need evidence rather than a choice - research or throwaway code - as a Task labelled spike, then write each answer back onto the ticket as a finding or decision once the user approves. Use when start-ticket or create-initiative names it, or when the user asks to spike, prototype, research or find out something before deciding.
 ---
 
-This is Madison skills 0.3.7.
+This is Madison skills 0.4.0.
 
 # Run a spike
 
@@ -96,7 +96,9 @@ from the spike Task's id alone.
    `setup-question.md` in this skill's folder says; declined, give both the Claude Code
    and Cowork forms): `start-ticket` on the spike Task
    when open questions kept it open; `start-ticket` on the ticket that asked while it has
-   open questions; otherwise `create-task` for an Initiative,
+   open questions; otherwise `create-task` for an Initiative (or `create-design` first,
+   when `designTool` is set and not "none yet", the Initiative has no `designLink` and
+   its `inScope` changes anything users see; blank `designTool` counts as none),
    `explore` or `build` for a Task (`build` once explored), and `start-ticket` on the
    Initiative for a Problem. Stopped at step 2: `create-initiative` for a Problem with no
    Initiative, `explore` for a Bug. Claude Code `/madison:<skill> <ticket>`; Cowork or

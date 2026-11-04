@@ -1,7 +1,7 @@
 # Madison skills
 
 Skills that let your agent work [Madison](https://madison.works) tickets the way a careful
-teammate would: write a ticket up, pick it up, explore the code behind it, get a second opinion, build,
+teammate would: write a ticket up, design it, pick it up, explore the code behind it, get a second opinion, build,
 check and ship it your team's way, and write every decision and finding back onto the
 ticket so the *why* outlives the session.
 
@@ -11,6 +11,7 @@ ticket so the *why* outlives the session.
 | `create-problem` | Something is going wrong for a user or the business: writes it up as a Problem (the pain, never the fix), replies with its link, then works its open questions with you. |
 | `create-bug` | Something is broken: writes it up as a Bug with how to reproduce it, and replies with its link. |
 | `create-initiative` | Choosing how to solve a Problem: writes the direction up as an Initiative linked to it, then works its open questions with you, including whether an MVP comes first. |
+| `create-design` | An Initiative changes what users see and has no design yet: makes the design in your team's design tool from what the ticket says, and sets the Initiative's design link so every Task under it is handed the design. Revises an existing design in place. Only Claude Design is supported; for any other tool it asks you to make the design and sets the link you give. `create-initiative`, `start-ticket` and `run-spike` hand off to it. |
 | `run-spike` | An open question on an Initiative or Task needs evidence, not a choice: answers it with research or throwaway code (kept outside your project) as a Task labelled `spike`, then writes each answer onto the ticket as a finding, or a decision when you make a choice with it, once you approve. `start-ticket`, `create-initiative` and `ship` hand off to it. |
 | `create-task` | Planning the work for an Initiative: writes a Task with a user story, linked to it. When the Initiative builds an MVP first, only the MVP Task until it passes. |
 | `review-tasks` | After writing Tasks, before building them: a second opinion that checks each Task against its Initiative's decisions, whether its acceptance criteria can be tested, and the Task rules, then writes the fixes and posts the review once you approve. Give it an Initiative to review all its open Tasks, or one Task. |
@@ -55,6 +56,9 @@ as a remote MCP server named `madison`.
 /plugin marketplace add Madison-Inc/skills
 /plugin install madison@madison
 ```
+
+Or from a terminal: `claude plugin marketplace add Madison-Inc/skills`, then
+`claude plugin install madison@madison`.
 
 **Cowork**: on the Plugins page, click **+ Add** → **Add marketplace**, enter
 `Madison-Inc/skills`, turn **Sync automatically** off and click **Sync**. Then, on the
