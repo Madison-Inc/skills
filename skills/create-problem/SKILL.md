@@ -3,7 +3,7 @@ name: create-problem
 description: Write up a Madison Problem - the pain a user or the business has, in their words - save it straight away, reply with its link, then work its open questions one at a time. Use when the user describes something going wrong, a pain point or a need, or asks to raise, capture or write up a problem.
 ---
 
-This is Madison skills 0.5.0.
+This is Madison skills 0.5.1.
 
 # Create a Problem
 

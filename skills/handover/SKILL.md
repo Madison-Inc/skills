@@ -4,7 +4,7 @@ description: Before moving Madison work to a new session, write what this sessio
 disable-model-invocation: true
 ---
 
-This is Madison skills 0.5.0.
+This is Madison skills 0.5.1.
 
 # Hand over to a new session
 
