@@ -3,7 +3,7 @@
 Skills that let your agent work [Madison](https://madison.works) tickets the way a careful
 teammate would: write a ticket up, design it, pick it up, explore the code behind it, get a second opinion, build,
 check and ship it your team's way, and write every decision and finding back onto the
-ticket so the *why* outlives the session.
+ticket so the *why* outlives the session, including when you hand the work to a new one.
 
 | Skill | When to use it |
 | --- | --- |
@@ -23,6 +23,7 @@ ticket so the *why* outlives the session.
 | `verify` | After building: writes a tagged test plan onto the ticket, says where the change can be seen, hands the tests to whoever your agent files name, and records the results. |
 | `ship` | After checking: works every open question left on the ticket, marks it Done once none is left and your team's definition of Done is met, then closes the chain (each parent is marked Done only once its own open questions are cleared). Safe to run more than once. |
 | `retro` | Once an Initiative is Done (`ship` hands off when your setup says a retro is due), or whenever you ask: reads how its work went, lists earlier retro fixes still open or that did not hold, and proposes at most two changes, preferring a check, hook or tool rule to another instruction. Raises each approved change as a ticket. |
+| `handover` | Only when you run it, before moving work to a new session: lists what this session decided or learned that is not on its tickets yet, writes it once you approve, then replies with a prompt of a few lines that starts the next session from the ticket. Writes no file. |
 
 **Running a skill.** Each agent has its own way:
 
@@ -34,7 +35,8 @@ ticket so the *why* outlives the session.
 | Codex | `$start-ticket ABC-12`, or `/skills` to pick one |
 | Any other agent | Run it the way your agent runs skills |
 
-In any agent you can also just ask ("start ticket ABC-12") and it picks the skill. Each
+In any agent you can also just ask ("start ticket ABC-12") and it picks the skill,
+except `handover`, which never starts on its own: run it with its command. Each
 skill ends by telling you the next step and the exact command for the agent that runs it.
 
 ## Before you start

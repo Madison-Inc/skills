@@ -3,7 +3,7 @@ name: review-comment
 description: Explain another agent's comment on a Madison ticket (an exploration, a review, a proposal) in plain words with a recommendation for each open decision, then post the reply and record the decisions once the user approves. Use when the user asks what a comment means, or to review or answer one.
 ---
 
-This is Madison skills 0.4.1.
+This is Madison skills 0.5.0.
 
 # Review a comment
 

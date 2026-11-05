@@ -3,7 +3,7 @@ name: run-spike
 description: Answer a Madison ticket's open questions that need evidence rather than a choice - research or throwaway code - as a Task labelled spike, then write each answer back onto the ticket as a finding or decision once the user approves. Use when start-ticket or create-initiative names it, or when the user asks to spike, prototype, research or find out something before deciding.
 ---
 
-This is Madison skills 0.4.1.
+This is Madison skills 0.5.0.
 
 # Run a spike
 
