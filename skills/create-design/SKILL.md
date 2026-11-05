@@ -3,7 +3,7 @@ name: create-design
 description: Make the design for a Madison Initiative in your team's design tool, from what the ticket says, and set the Initiative's design link so every Task under it is handed the design. Revises the existing design in place when there is one. Use when an Initiative changes what users see and has no design yet, when the user asks for a design, mock-up or wireframe for an Initiative, or when a hand-off names it.
 ---
 
-This is Madison skills 0.4.0.
+This is Madison skills 0.4.1.
 
 # Create a design
 
@@ -30,6 +30,12 @@ link. It writes no code.
   place, keeping its link. Make a new one only when the user asks.
 - **Design from the ticket, not from guesses.** What it does not settle, leave out and
   name as a gap.
+- **Change the ticket only as the user says.** A change the user asks for in the design
+  is recorded straight away as a decision on the ticket (`update_initiative`, or
+  `update_task` for a Task, with `decisions`; `supersedes` names an active decision it
+  overturns, copied exactly). Anything else the design would
+  change on the ticket (its statement, scope, title or any other field) is offered at
+  the end of the run and written only once the user says yes.
 
 ## Steps
 
@@ -43,6 +49,9 @@ link. It writes no code.
      (embedded), and `list_comments` on it. Given a Task, use `get_task` instead: its own
      design differs from its Initiative's, so its link goes on the Task. A Done or Closed
      ticket takes no new design: say so and stop.
+   - For an Initiative, its Tasks: `list_tasks` with its `initiativeId` and
+     `brief: true`, and again with `label: "spike"` to tell spikes apart. Step 7's
+     hand-off depends on whether any Task that is not a spike is still open.
 2. **Check the design tool.** Read `designTool`.
    - **Blank:** ask it as `setup-question.md` in this skill's folder says, then carry on.
    - **"None yet", or declined:** say in one line there is nowhere to make a design, and
@@ -70,7 +79,10 @@ link. It writes no code.
    Skip this when you revised the design in place and its link is unchanged.
 6. **Reply** with the design link, then the ticket link (`create-ticket.md` in this
    skill's folder gives the format), and one line on anything the ticket left unsettled
-   that the design had to leave out.
+   that the design had to leave out. If the user asked for changes, say each is recorded
+   as a decision. If the design now differs from the ticket in any other way, list each
+   change you would make to the ticket and ask whether to write them; write them only on
+   a yes.
 7. **Hand off.** End your last message with one line naming the next step, in the agent
    the team's `agentRoles` gives it to (only that agent's command; `agentRoles` blank: ask
    it first, recommend an answer and save it only once the user accepts, as
@@ -79,9 +91,9 @@ link. It writes no code.
    - **Stopped because this agent has no Design type:** `create-design` on this ticket,
      in the agent that does design work. `agentRoles` set but naming no agent for
      design: give both the Claude Code and Cowork forms, without asking.
-   - **An Initiative:** `list_tasks` with its `initiativeId` and `brief: true`. No open
-     Tasks: `create-task`. Open Tasks: `explore` on each, so they are checked against
-     the design.
+   - **An Initiative:** from the Tasks loaded in step 1, leaving out spikes. No open
+     Task (none, or all Done or Closed): `create-task`. Any open Task: `explore` on each
+     open one, so it is checked against the design, never `create-task`.
    - **A Task:** `explore` on it.
    Claude Code `/madison:<skill> <ticket>`; Cowork or Cursor `/<skill> <ticket>`; Codex
    `$<skill> <ticket>`; any other agent, name the skill in words. No advice about which
