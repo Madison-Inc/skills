@@ -3,7 +3,7 @@ name: create-bug
 description: Write up a Madison Bug - something that is broken, with how to reproduce it - save it straight away and reply with its link. Use when the user reports a defect, a regression or something not working as it should, or asks to raise, file or log a bug.
 ---
 
-This is Madison skills 0.5.1.
+This is Madison skills 0.5.2.
 
 # Create a Bug
 

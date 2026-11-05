@@ -3,7 +3,7 @@ name: create-design
 description: Make the design for a Madison Initiative in your team's design tool, from what the ticket says, and set the Initiative's design link so every Task under it is handed the design. Revises the existing design in place when there is one. Use when an Initiative changes what users see and has no design yet, when the user asks for a design, mock-up or wireframe for an Initiative, or when a hand-off names it.
 ---
 
-This is Madison skills 0.5.1.
+This is Madison skills 0.5.2.
 
 # Create a design
 

@@ -3,7 +3,7 @@ name: retro
 description: Look back on a Done Madison Initiative - how its work went, which earlier retro fixes are still open or did not hold - and propose at most two changes, preferring a check, hook or tool rule over another instruction, then raise each approved change as a ticket. Use when an Initiative is Done and the team's setup says a retro is due, or when the user asks for a retro or what to learn from an Initiative.
 ---
 
-This is Madison skills 0.5.1.
+This is Madison skills 0.5.2.
 
 # Retro
 

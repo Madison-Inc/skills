@@ -3,7 +3,7 @@ name: review-tasks
 description: Get a second opinion on Madison Tasks before they are built - check each Task against its Initiative's decisions, whether its acceptance criteria can be tested, and the Task rules, with a recommendation per issue, then write the fixes and post the review once the user approves. Use after writing Tasks, or when the user asks to review, check or sanity-check a Task or an Initiative's Tasks.
 ---
 
-This is Madison skills 0.5.1.
+This is Madison skills 0.5.2.
 
 # Review Tasks
 
@@ -61,12 +61,17 @@ subagents, do step 2's review yourself, from the ids alone.
      5. **Other Tasks:** two that contradict or duplicate each other. Name both.
    - Check the claims a recommendation rests on, in the code or in Madison; mark any it
      could not check as the Task's claim, unverified.
-   - Return, per Task: id and title; **Verdict** (ready to build, or needs changes); then
+   - **Open questions are `start-ticket`'s, never yours.** Review the Task as it stands.
+     List the Task's open questions as stored, but never propose an answer, a decision or
+     a recommendation for one, on the Task or its Initiative, and never raise one as an
+     issue. An open question on its own never makes the verdict "needs changes".
+   - Return, per Task: id and title; **Verdict** (ready to build; ready once its open
+     questions are answered; or needs changes); **Open questions**, the Task's, listed as
+     stored with no answer (none: leave it out); then
      numbered **Issues**: what is wrong, **Recommend: X** with the field, the exact
      current text it replaces (quoted as stored) and the exact new text (for a field
      replaced whole, such as the description, the field's full new text), and one line of
-     why. Rank by best outcome, never by
-     effort. No issues: say so in one line.
+     why. Rank by best outcome, never by effort. No issues: say so in one line.
 3. **Show the review** as it came back. Then ask one question: apply every recommendation
    as it stands, or say which to change or skip. If the user wants to go through them,
    take one issue per message and wait for each answer.
