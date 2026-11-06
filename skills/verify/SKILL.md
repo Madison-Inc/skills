@@ -3,7 +3,7 @@ name: verify
 description: Check a built Madison Task or Bug - write a tagged test plan onto the ticket, say where the change can be seen, hand the tests to whoever the team's agent files name, and record the results. Use when the user says to verify, test or check a ticket after it is built.
 ---
 
-This is Madison skills 0.5.2.
+This is Madison skills 0.5.3.
 
 # Verify a ticket
 
@@ -60,10 +60,17 @@ AGENTS.md or whatever your agent reads), not from Madison.
    line naming the next step, in the agent the team's `agentRoles` gives it to (only that
    agent's command; `agentRoles` blank: ask it first, recommend an answer and save it only
    once the user accepts, as `setup-question.md` in this skill's folder says; declined,
-   give both the Claude Code and Cowork forms): `ship` once
-   every step has passed, or `build` to fix a failure. Give the exact
-   command: Claude Code `/madison:<skill> <ticket>`; Cowork or Cursor `/<skill> <ticket>`;
-   Codex `$<skill> <ticket>`; any other agent, name the skill in words. No advice about
-   which session to use.
+   give both the Claude Code and Cowork forms):
+   - **A step failed:** `build` to fix it.
+   - **Every step passed, and the change is not merged yet** (or a later release step the
+     team's agent files give still stands before the team's `doneWhen` can be met): the
+     next step is that merge or release step, never `ship`. Name it as the agent files
+     give it, and who does it (e.g. "merge the PR"), and name nothing after it. `ship`
+     comes only once the change is merged.
+   - **Every step passed, and nothing is left before `doneWhen` can be met:** `ship`.
+
+   Give the exact command for a skill: Claude Code `/madison:<skill> <ticket>`; Cowork or
+   Cursor `/<skill> <ticket>`; Codex `$<skill> <ticket>`; any other agent, name the skill
+   in words. No advice about which session to use.
 
 Never mark the ticket Done here. That is `ship`'s call.

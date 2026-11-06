@@ -3,7 +3,7 @@ name: ship
 description: Close out a verified Madison Task or Bug - check whether the team's definition of Done is met, work every open question left on the ticket, mark it Done only once none is left, and close the chain (parent statuses, each parent's own open questions, whether the Problem is solved). Safe to run more than once. Use when the user says to ship, close or finish a ticket.
 ---
 
-This is Madison skills 0.5.2.
+This is Madison skills 0.5.3.
 
 # Ship a ticket
 
@@ -76,7 +76,12 @@ AGENTS.md or whatever your agent reads) give the agent, and checks Done against 
    the team's `agentRoles` gives it to (only that agent's command; `agentRoles` blank: ask
    it first, recommend an answer and save it only once the user accepts, as
    `setup-question.md` in this skill's folder says; declined, give both the Claude Code
-   and Cowork forms):
+   and Cowork forms). The line names the step that is actually next:
+   - **A change is still waiting on a merge or release step** the team's agent files give
+     to someone else (this ticket's, or one the agent raised in this session that is still
+     unmerged): that step comes first, and who does it (e.g. "merge the PR"), never `ship`
+     or `start-ticket`. Name nothing after it. The cases below apply only once nothing is
+     waiting.
    - **This run marked the Initiative Done:** `retro` on the Initiative when the team's
      `retroWhen` says one is due; otherwise, say nothing is left on it. `retroWhen` blank:
      ask it, recommend an answer and save it only once the user accepts, as
