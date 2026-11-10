@@ -3,7 +3,7 @@ name: ship
 description: Close out a verified Madison Task or Bug - check whether the team's definition of Done is met, work every open question left on the ticket, mark it Done only once none is left, and close the chain (parent statuses, each parent's own open questions, whether the Problem is solved). Safe to run more than once. Use when the user says to ship, close or finish a ticket.
 ---
 
-This is Madison skills 0.5.3.
+This is Madison skills 0.6.0.
 
 # Ship a ticket
 
@@ -31,7 +31,8 @@ AGENTS.md or whatever your agent reads) give the agent, and checks Done against 
   who acts next.
 - **Leave a parent that is already Done or Closed alone:** no status change, and no work
   on its questions.
-- **ship only ever sets Done.** A ticket that is not Done stays as it is.
+- **ship only ever sets Done.** A ticket that is not Done stays as it is. A Plan is marked
+  Done only on the user's yes to its question.
 
 ## Steps
 
@@ -72,7 +73,16 @@ AGENTS.md or whatever your agent reads) give the agent, and checks Done against 
    - **Each Problem it solves:** once every Initiative linked to it is Done or Closed and
      nothing on the Problem or its thread says the pain remains, work its open questions
      as in step 5, then mark it Done once none is left. Otherwise leave it, and say why.
-7. **Hand off.** End your last message with one line naming the next step, in the agent
+7. **Ask about each Plan that is ready.** When an `update_problem` or `update_bug` call in
+   this run says a Plan the ticket is in is now ready (every ticket in it Done or Closed),
+   ask about that Plan once, however many tickets named it, one Plan per message: say in
+   one line that every ticket in it is Done or Closed, and ask whether its outcome was
+   reached.
+   - **Yes:** `update_plan` with status Done.
+   - **No:** ask what is still missing, and add it to the Plan's `unknowns` with
+     `update_plan`.
+   - **No update named a Plan:** go on.
+8. **Hand off.** End your last message with one line naming the next step, in the agent
    the team's `agentRoles` gives it to (only that agent's command; `agentRoles` blank: ask
    it first, recommend an answer and save it only once the user accepts, as
    `setup-question.md` in this skill's folder says; declined, give both the Claude Code

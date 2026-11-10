@@ -3,7 +3,7 @@ name: build
 description: Build a decided Madison Task or Bug - read the ticket, its comments and parents, set it In Progress, then implement it the way the team's own agent files say. Use when the user says to build, implement or execute a ticket whose open questions are answered.
 ---
 
-This is Madison skills 0.5.3.
+This is Madison skills 0.6.0.
 
 # Build a ticket
 

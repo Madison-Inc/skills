@@ -3,7 +3,7 @@ name: still-relevant
 description: Re-check one open Madison ticket (Problem, Initiative, Task or Bug) against the code, other tickets and its parents' decisions, and propose Done, Closed or keep with the evidence, then record the verdict once the user approves. Use when the user asks whether a ticket is still relevant, still needed, already done, or can be closed.
 ---
 
-This is Madison skills 0.5.3.
+This is Madison skills 0.6.0.
 
 # Is this ticket still relevant?
 
@@ -68,6 +68,12 @@ has no subagents, do step 2's check yourself, from the ticket id alone.
      once no open question is left on it.
    - **Done on a Task or Bug:** no status change.
    - **keep:** the comment only.
+
+   After setting a ticket Closed or Done, check the `update_*` reply: when it says a Plan
+   the ticket is in is now ready (every ticket in it Done or Closed), say so in one line
+   and ask whether its outcome was reached, one Plan per message. Yes: `update_plan` with
+   status Done. No: ask what is still missing, and add it to the Plan's `unknowns` with
+   `update_plan`.
 5. **Hand off.** End your last message with one line naming the next step, in the agent
    the team's `agentRoles` gives it to (only that agent's command; `agentRoles` blank: ask
    it first, recommend an answer and save it only once the user accepts, as

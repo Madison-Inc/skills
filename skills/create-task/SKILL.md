@@ -1,9 +1,9 @@
 ---
 name: create-task
-description: Write up a Madison Task - one unit of work that implements an Initiative - linked to that Initiative with a user story, save it straight away and reply with its link. Under an Initiative building an MVP first, it writes only the MVP Task until that passes. Use when the user wants to plan, break down or write up work for an Initiative.
+description: Write up a Madison Task - one unit of work that implements an Initiative - linked to that Initiative with a user story, save it straight away and reply with its link. Under an Initiative building an MVP first, it writes only the MVP Task until that passes. Use when the user wants to plan, break down or write up work for an Initiative. An outcome to plan towards, with no Initiative yet, is create-plan.
 ---
 
-This is Madison skills 0.5.3.
+This is Madison skills 0.6.0.
 
 # Create a Task
 

@@ -1,13 +1,13 @@
 {
   "name": "madison",
   "owner": { "name": "Madison", "url": "https://madison.works" },
-  "description": "Madison's agent skills: set up your team, write up tickets, design an Initiative, pick one up, spike a question that needs evidence, check one is still relevant, explore the code, get a second opinion, build, verify, ship, run a retro and hand over to a new session.",
+  "description": "Madison's agent skills: set up your team, plan towards an outcome, write up tickets, design an Initiative, pick one up, spike a question that needs evidence, check one is still relevant, explore the code, get a second opinion, build, verify, ship, run a retro and hand over to a new session.",
   "plugins": [
     {
       "name": "madison",
       "source": "./",
       "description": "Work Madison tickets with your agent.",
-      "version": "0.5.3"
+      "version": "0.6.0"
     }
   ]
 }

@@ -8,6 +8,7 @@ ticket so the *why* outlives the session, including when you hand the work to a 
 | Skill | When to use it |
 | --- | --- |
 | `setup-madison` | Whenever you want to see or change how your team works with Madison (when a ticket is Done, which agent does what, your ticket rules, …), or answer several setup questions at once. You never need it first: each skill asks a blank answer when it needs it. |
+| `create-plan` | You have an outcome in mind but the path to it is not clear: starts a Plan (or grows a matching open one), replies with its link, links the Problems and Bugs that already serve it, then maps the rest with you one question at a time: what can be stated becomes a linked Problem, what cannot yet is an Unknown, and what you rule out is Out of scope. `ship` and `still-relevant` ask whether a Plan's outcome was reached once its last ticket closes. |
 | `create-problem` | Something is going wrong for a user or the business: writes it up as a Problem (the pain, never the fix), replies with its link, then works its open questions with you. |
 | `create-bug` | Something is broken: writes it up as a Bug with how to reproduce it, and replies with its link. |
 | `create-initiative` | Choosing how to solve a Problem: writes the direction up as an Initiative linked to it, then works its open questions with you, including whether an MVP comes first. |

@@ -3,7 +3,7 @@ name: create-initiative
 description: Write up a Madison Initiative - the direction chosen to solve a Problem - linked to that Problem, save it straight away, reply with its link, then work its open questions one at a time, including whether an MVP comes first. Use when the user wants to solve a Problem, commit to an approach, or asks to raise or write up an initiative.
 ---
 
-This is Madison skills 0.5.3.
+This is Madison skills 0.6.0.
 
 # Create an Initiative
 
