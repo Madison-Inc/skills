@@ -3,7 +3,7 @@ name: create-task
 description: Write up a Madison Task - one unit of work that implements an Initiative - linked to that Initiative with a user story, save it straight away and reply with its link. Under an Initiative building an MVP first, it writes only the MVP Task until that passes. Use when the user wants to plan, break down or write up work for an Initiative. An outcome to plan towards, with no Initiative yet, is create-plan.
 ---
 
-This is Madison skills 0.6.0.
+This is Madison skills 0.7.0.
 
 # Create a Task
 
@@ -62,7 +62,8 @@ a Bug, not a Task: use `create-bug`.
      `risks` and `dependencies` where known.
    - `decisions` already made, and `openQuestions`: implementation questions only.
    - No `testingSteps`: the test plan is `verify`'s.
-6. **Reply with the link** (`create-ticket.md` gives the format) and the title in one line.
+6. **Reply with the link** (`create-ticket.md` gives the format), the Area you filed it
+   in, by name, and the title in one line.
    If you declined any Tasks under the MVP rule, say which.
 7. **Hand off.** End your last message with one line naming the next step, in the agent
    the team's `agentRoles` gives it to (only that agent's command; `agentRoles` blank: ask

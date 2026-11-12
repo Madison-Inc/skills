@@ -3,7 +3,7 @@ name: create-initiative
 description: Write up a Madison Initiative - the direction chosen to solve a Problem - linked to that Problem, save it straight away, reply with its link, then work its open questions one at a time, including whether an MVP comes first. Use when the user wants to solve a Problem, commit to an approach, or asks to raise or write up an initiative.
 ---
 
-This is Madison skills 0.6.0.
+This is Madison skills 0.7.0.
 
 # Create an Initiative
 
@@ -50,8 +50,8 @@ a Task's job, later.
      and metrics only where the conversation gave them.
    - `decisions` already made, each with what it was chosen against.
    - `openQuestions`: the approach questions still open, with the MVP question first.
-4. **Reply with the link** (`create-ticket.md` gives the format) and the commitment in one
-   line.
+4. **Reply with the link** (`create-ticket.md` gives the format), the Area you filed it
+   in, by name, and the commitment in one line.
 5. **Work its open questions, one at a time.** Say how many there are, then ask only the
    first, with your recommendation, and wait for the answer. Record each answer on the
    Initiative with `update_initiative` before asking the next. Read `interview.md` in this

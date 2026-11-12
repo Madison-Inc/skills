@@ -23,10 +23,16 @@ Create the ticket in the Area it belongs to:
 
 - **It has a parent** (a Task's Initiative, an Initiative's Problem): use the parent's
   Area, from the parent's `area` in its `get_*` response. Pass it as `areaId`.
-- **No parent:** pass `cwd` (your working directory) and Madison works the Area out from
-  the folder.
-- If Madison answers `AREA_REQUIRED`, show the Areas it lists, ask which one, and retry
-  with `areaId`.
+- **No parent:** pick the Area yourself. Call `list_areas`, choose the one the
+  conversation is about, and pass its key as `areaId`. Do not ask the user first. With
+  only one Area there is nothing to choose: pass it.
+- **Name the Area in your reply**, in the line that gives the link ("Created <ticket>
+  in <Area name>"), so a wrong pick is easy to spot. If the user says it is wrong, move
+  the ticket with `move_record`; never delete and recreate it.
+- If Madison answers `AREA_REQUIRED`, no `areaId` reached it: pick one from the Areas it
+  lists, by the same rule, and retry.
+- If Madison answers that the `areaId` is unknown, it lists the valid Areas: pick from
+  those and retry.
 
 ## Fields
 

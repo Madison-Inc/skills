@@ -3,7 +3,7 @@ name: retro
 description: Look back on a Done Madison Initiative - how its work went, which earlier retro fixes are still open or did not hold - and propose at most two changes, preferring a check, hook or tool rule over another instruction, then raise each approved change as a ticket. Use when an Initiative is Done and the team's setup says a retro is due, or when the user asks for a retro or what to learn from an Initiative.
 ---
 
-This is Madison skills 0.6.0.
+This is Madison skills 0.7.0.
 
 # Retro
 
@@ -61,9 +61,12 @@ has no subagents, do step 2's reading yourself, from the Initiative id alone.
        comment on that Initiative instead of raising another.
      - **No match, or the match is Done or Closed:** `create_problem` labelled `retro`,
        its description naming any Done or Closed match ("raised again: the fix in ABC-12
-       did not hold").
+       did not hold"). `areaId`: call `list_areas` and pick the Area the change belongs
+       to; do not ask the user first.
      - Then `create_initiative` labelled `retro`, linked to that Problem with
-       `linkedProblemId`, its description opening "Raised by a retro on <Initiative id>."
+       `linkedProblemId`, `areaId` the Problem's Area, its description opening "Raised by
+       a retro on <Initiative id>."
+     - When you say what was raised, name the Area each ticket was filed in.
      - **A team rule** is also written straight away with `update_setup` (`addRules`).
        Refused for lack of role: say an owner or admin can add it, and note "not yet in
        setup" on the new Initiative.

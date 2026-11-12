@@ -3,7 +3,7 @@ name: still-relevant
 description: Re-check one open Madison ticket (Problem, Initiative, Task or Bug) against the code, other tickets and its parents' decisions, and propose Done, Closed or keep with the evidence, then record the verdict once the user approves. Use when the user asks whether a ticket is still relevant, still needed, already done, or can be closed.
 ---
 
-This is Madison skills 0.6.0.
+This is Madison skills 0.7.0.
 
 # Is this ticket still relevant?
 

@@ -3,7 +3,7 @@ name: run-spike
 description: Answer a Madison ticket's open questions that need evidence rather than a choice - research or throwaway code - as a Task labelled spike, then write each answer back onto the ticket as a finding or decision once the user approves. Use when start-ticket or create-initiative names it, or when the user asks to spike, prototype, research or find out something before deciding.
 ---
 
-This is Madison skills 0.6.0.
+This is Madison skills 0.7.0.
 
 # Run a spike
 
@@ -63,7 +63,8 @@ from the spike Task's id alone.
    each question **verbatim** with what answer would settle it, and whether it needs
    research, throwaway code or both. `acceptanceCriteria`: one per question, "<the
    question> has been answered". Set the Initiative, and its Problems, In Progress if
-   they are in Backlog. Reply with the link (`create-ticket.md` gives the format).
+   they are in Backlog. Reply with the link (`create-ticket.md` gives the format) and the
+   Area you filed it in, by name.
 5. **Run the spike in a subagent.** Give a fresh subagent the spike Task's id and these
    instructions. It returns text, does not talk to the user and does not write to Madison.
    - Run the spike in `spike.md` in this skill's folder, and return what it says to

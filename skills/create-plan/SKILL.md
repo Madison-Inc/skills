@@ -3,7 +3,7 @@ name: create-plan
 description: Start or grow a Madison Plan - an outcome to reach, the Problems and Bugs that serve it, what is not known yet and what is ruled out - save it straight away, reply with its link, then map the path one question at a time, raising each unknown as a Problem once it can be stated. Use when the user has an outcome or goal in mind and asks to plan towards it, map the path to it, or start or add to a Plan. Breaking an Initiative into Tasks is create-task, not this.
 ---
 
-This is Madison skills 0.6.0.
+This is Madison skills 0.7.0.
 
 # Create a Plan
 
@@ -62,7 +62,9 @@ on the linked tickets, never on the Plan.
    - **Can be stated as a pain:** `search_records` first (`create-ticket.md` in this
      skill's folder gives the score bands). A strong match: link that ticket. Otherwise
      `create_problem` with `statement`, `description`, discovery `openQuestions` and
-     `cwd`, then `link_plan_ticket`. If it was an Unknown, remove it (`removeUnknowns`,
+     `areaId` (call `list_areas` and pick the Area the pain belongs to; do not ask the
+     user first), then `link_plan_ticket`. Say in one line which Area you filed it in,
+     by name. If it was an Unknown, remove it (`removeUnknowns`,
      exact text).
    - **Cannot be stated yet:** add it to `unknowns`.
    - **Ruled out by the user:** add it to `outOfScope`.

@@ -3,7 +3,7 @@ name: ship
 description: Close out a verified Madison Task or Bug - check whether the team's definition of Done is met, work every open question left on the ticket, mark it Done only once none is left, and close the chain (parent statuses, each parent's own open questions, whether the Problem is solved). Safe to run more than once. Use when the user says to ship, close or finish a ticket.
 ---
 
-This is Madison skills 0.6.0.
+This is Madison skills 0.7.0.
 
 # Ship a ticket
 

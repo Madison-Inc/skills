@@ -3,7 +3,7 @@ name: create-problem
 description: Write up a Madison Problem - the pain a user or the business has, in their words - save it straight away, reply with its link, then work its open questions one at a time. Use when the user describes something going wrong, a pain point or a need, or asks to raise, capture or write up a problem.
 ---
 
-This is Madison skills 0.6.0.
+This is Madison skills 0.7.0.
 
 # Create a Problem
 
@@ -44,9 +44,10 @@ A Problem is the pain, never the fix. Solving it is an Initiative's job, later.
    - `openQuestions`: what is still unknown about who is affected, how often, how badly
      and why it matters. Discovery questions only: how to build anything is not a
      Problem's question.
-   - `cwd`, so it lands in the right Area.
-4. **Reply with the link** (`create-ticket.md` gives the format) and the statement in one
-   line.
+   - `areaId`: the Area this belongs to. Call `list_areas` and pick the one the
+     conversation is about; do not ask the user first.
+4. **Reply with the link** (`create-ticket.md` gives the format), the Area you filed it
+   in, by name, and the statement in one line.
 5. **Work its open questions, one at a time.** Say how many there are, then ask only the
    first, with your recommendation, and wait for the answer. Record each answer on the
    Problem with `update_problem` before asking the next. Read `interview.md` in this

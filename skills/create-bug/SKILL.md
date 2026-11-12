@@ -3,7 +3,7 @@ name: create-bug
 description: Write up a Madison Bug - something that is broken, with how to reproduce it - save it straight away and reply with its link. Use when the user reports a defect, a regression or something not working as it should, or asks to raise, file or log a bug.
 ---
 
-This is Madison skills 0.6.0.
+This is Madison skills 0.7.0.
 
 # Create a Bug
 
@@ -44,9 +44,10 @@ A Bug is a defect, and it is its own implementation ticket: the fix is worked on
      the user did not give is an open question, never a guess.
    - `severity` and `priority` from the bands on those fields.
    - `openQuestions`: what is still unknown about reproducing it or fixing it.
-   - `cwd`, so it lands in the right Area.
-4. **Reply with the link** (`create-ticket.md` gives the format) and the title in one
-   line. If it has open questions, list them.
+   - `areaId`: the Area this belongs to. Call `list_areas` and pick the one the
+     conversation is about; do not ask the user first.
+4. **Reply with the link** (`create-ticket.md` gives the format), the Area you filed it
+   in, by name, and the title in one line. If it has open questions, list them.
 5. **Hand off.** End your last message with one line naming the next step, in the agent
    the team's `agentRoles` gives it to (only that agent's command; `agentRoles` blank: ask
    it first, recommend an answer and save it only once the user accepts, as
