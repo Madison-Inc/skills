@@ -7,6 +7,7 @@ ticket so the *why* outlives the session, including when you hand the work to a 
 
 | Skill | When to use it |
 | --- | --- |
+| `onboard` | Setting up a new workspace, or refreshing what Madison knows about your product: signs you in, reads your code and what your agent already knows, asks only what it cannot work out (what the product is for, who uses it, rules the code doesn't show, whether it is live), shows the notes it will save and saves them as the Workspace Context once you agree. |
 | `setup-madison` | Whenever you want to see or change how your team works with Madison (when a ticket is Done, which agent does what, your ticket rules, …), or answer several setup questions at once. You never need it first: each skill asks a blank answer when it needs it. |
 | `create-plan` | You have an outcome in mind but the path to it is not clear: starts a Plan (or grows a matching open one), replies with its link, links the Problems and Bugs that already serve it, then maps the rest with you one question at a time: what can be stated becomes a linked Problem, what cannot yet is an Unknown, and what you rule out is Out of scope. `ship` and `still-relevant` ask whether a Plan's outcome was reached once its last ticket closes. |
 | `create-problem` | Something is going wrong for a user or the business: writes it up as a Problem (the pain, never the fix), replies with its link, then works its open questions with you. |
@@ -42,14 +43,17 @@ skill ends by telling you the next step and the exact command for the agent that
 
 ## Before you start
 
-Connect the Madison MCP server to your agent and sign in:
+**Claude Code** (and the desktop app's Code tab): installing the plugin (below) also
+connects the Madison MCP server. Start a new session, then sign in: run `/mcp`, select
+`madison`, choose **Authenticate** and click **Allow** in the browser. If you already
+connected Madison yourself with the same address, Claude Code keeps your connection and
+hides the plugin's copy.
 
-```bash
-claude mcp add --transport http --scope user madison https://mcp.madison.works/mcp
-```
+**Cowork:** add `https://mcp.madison.works/mcp` as a connector and sign in, then install
+the plugin.
 
-Then run `/mcp` → `madison` → sign in. Other agents: add `https://mcp.madison.works/mcp`
-as a remote MCP server named `madison`.
+**Other agents:** add `https://mcp.madison.works/mcp` as a remote MCP server named
+`madison` and sign in.
 
 ## Install
 
@@ -75,8 +79,10 @@ The Claude desktop app's Code tab uses this same install.
 npx skills add Madison-Inc/skills
 ```
 
-A new workspace has no tickets yet, so start by describing the first problem you want to
-solve with `create-problem`, which writes it up. There is no setup to fill in first: the
+On a new workspace, run `onboard` first (Claude Code: `/madison:onboard`), so Madison
+knows what your product is and who it is for from your first chat. A new workspace has no
+tickets yet, so then describe the first problem you want to solve with `create-problem`,
+which writes it up. There is no setup to fill in first: the
 first time a skill needs to know how your team works (when a ticket is Done, which agent
 does what), it asks that one question, recommends an answer, and saves it once you accept.
 
