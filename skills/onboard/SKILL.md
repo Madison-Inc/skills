@@ -3,7 +3,7 @@ name: onboard
 description: "Tell Madison what your product is and who it is for: signs you in to Madison, reads your code and what your agent already knows, asks you only what it cannot work out, shows the notes it will save and saves them as your workspace's Context once you agree. Use when the user runs onboarding for a new Madison workspace, or asks to set up or refresh what Madison knows about their product."
 ---
 
-This is Madison skills 0.8.0.
+This is Madison skills 0.9.0.
 
 # Onboard a workspace
 

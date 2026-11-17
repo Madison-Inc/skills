@@ -1,9 +1,9 @@
 ---
 name: ship
-description: Close out a verified Madison Task or Bug - check whether the team's definition of Done is met, work every open question left on the ticket, mark it Done only once none is left, and close the chain (parent statuses, each parent's own open questions, whether the Problem is solved). Safe to run more than once. Use when the user says to ship, close or finish a ticket.
+description: Close out a verified Madison Task or Bug - check whether the team's definition of Done is met, work every open question left on the ticket, mark it Done only once none is left, close the chain (parent statuses, each parent's own open questions, whether the Problem is solved), and offer any change what shipped makes to the workspace's Context. Safe to run more than once. Use when the user says to ship, close or finish a ticket.
 ---
 
-This is Madison skills 0.8.0.
+This is Madison skills 0.9.0.
 
 # Ship a ticket
 
@@ -33,6 +33,8 @@ AGENTS.md or whatever your agent reads) give the agent, and checks Done against 
   on its questions.
 - **ship only ever sets Done.** A ticket that is not Done stays as it is. A Plan is marked
   Done only on the user's yes to its question.
+- **The Workspace Context is written only on the user's yes** to the exact change shown.
+  A declined or unanswered proposal writes nothing.
 
 ## Steps
 
@@ -62,7 +64,7 @@ AGENTS.md or whatever your agent reads) give the agent, and checks Done against 
    folder says, clearing each by the first rule. A question it says to leave open for
    `run-spike` stays open, so it blocks Done too.
    - **None left:** mark the ticket Done with the matching `update_*` tool.
-   - **Any left:** name each, leave the ticket as it is, and go to step 7.
+   - **Any left:** name each, leave the ticket as it is, and go to step 8.
 6. **Close the chain**, only once the ticket is Done. Set statuses yourself, without
    asking, and say what you changed. A Bug has no parents: go to step 7. Work the
    Initiative first, then each Problem.
@@ -73,7 +75,33 @@ AGENTS.md or whatever your agent reads) give the agent, and checks Done against 
    - **Each Problem it solves:** once every Initiative linked to it is Done or Closed and
      nothing on the Problem or its thread says the pain remains, work its open questions
      as in step 5, then mark it Done once none is left. Otherwise leave it, and say why.
-7. **Ask about each Plan that is ready.** When an `update_problem` or `update_bug` call in
+7. **Check the Workspace Context**, only when this run marked the ticket Done (it was not
+   Done when the run started). Otherwise skip this step: a later run has nothing new to
+   check. The Context is the short set of notes Madison loads into every chat in the
+   workspace.
+   - Call `get_context`. Read what shipped: the ticket, its Initiative and Problems (a Bug
+     has none), and the change itself (the diff or PR, where you can reach it).
+   - Ask one question: does what shipped change **what the product is, who it is for, or
+     a rule or constraint that leaves no trace in the code** (security or compliance, data
+     that must never be stored, something deliberately switched off or ruled out)? Most
+     ships change none of these.
+   - **Never propose** a note about architecture, stack, libraries, file layout, how to run
+     or contribute, current priorities or what is being worked on, even when what shipped
+     changed them: Madison reads those from the code and the tickets.
+   - **Drop any change the notes from `get_context` already say:** it is never proposed
+     again.
+   - **Nothing left to change:** say in one line that the Workspace Context needs no
+     change, write nothing, and go on.
+   - **Something left to change:** show the exact change as a numbered list: a new
+     note (one short line), a correction (the old text, then the new) or a removal (the
+     note's text). Ask whether to save it.
+     - **Yes:** send every change in one `update_context` call (`add`; `replace` or
+       `remove` by the note's id from `get_context`). If it comes back with
+       `updated: false`, read its `message`, fix the call, and show the change again if it
+       differs.
+     - **They change it:** show the whole change again and ask again.
+     - **No:** write nothing, and go on.
+8. **Ask about each Plan that is ready.** When an `update_problem` or `update_bug` call in
    this run says a Plan the ticket is in is now ready (every ticket in it Done or Closed),
    ask about that Plan once, however many tickets named it, one Plan per message: say in
    one line that every ticket in it is Done or Closed, and ask whether its outcome was
@@ -82,7 +110,7 @@ AGENTS.md or whatever your agent reads) give the agent, and checks Done against 
    - **No:** ask what is still missing, and add it to the Plan's `unknowns` with
      `update_plan`.
    - **No update named a Plan:** go on.
-8. **Hand off.** End your last message with one line naming the next step, in the agent
+9. **Hand off.** End your last message with one line naming the next step, in the agent
    the team's `agentRoles` gives it to (only that agent's command; `agentRoles` blank: ask
    it first, recommend an answer and save it only once the user accepts, as
    `setup-question.md` in this skill's folder says; declined, give both the Claude Code

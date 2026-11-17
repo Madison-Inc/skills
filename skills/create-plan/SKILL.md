@@ -3,7 +3,7 @@ name: create-plan
 description: Start or grow a Madison Plan - an outcome to reach, the Problems and Bugs that serve it, what is not known yet and what is ruled out - save it straight away, reply with its link, then map the path one question at a time, raising each unknown as a Problem once it can be stated. Use when the user has an outcome or goal in mind and asks to plan towards it, map the path to it, or start or add to a Plan. Breaking an Initiative into Tasks is create-task, not this.
 ---
 
-This is Madison skills 0.8.0.
+This is Madison skills 0.9.0.
 
 # Create a Plan
 

@@ -23,7 +23,7 @@ ticket so the *why* outlives the session, including when you hand the work to a 
 | `review-comment` | When another agent has left a comment (an exploration, a review): explains it with a recommendation per decision, then posts your answers once you approve. |
 | `build` | Once a ticket is decided: sets it In Progress and implements it, branching, reviewing and raising the change the way your own agent files (CLAUDE.md, AGENTS.md…) say. |
 | `verify` | After building: writes a tagged test plan onto the ticket, says where the change can be seen, hands the tests to whoever your agent files name, and records the results. |
-| `ship` | After checking: works every open question left on the ticket, marks it Done once none is left and your team's definition of Done is met, then closes the chain (each parent is marked Done only once its own open questions are cleared). Safe to run more than once. |
+| `ship` | After checking: works every open question left on the ticket, marks it Done once none is left and your team's definition of Done is met, then closes the chain (each parent is marked Done only once its own open questions are cleared). When what shipped changes what the product is, who it is for or a rule the code does not show, it offers the matching change to your Workspace Context and saves it only once you approve. Safe to run more than once. |
 | `retro` | Once an Initiative is Done (`ship` hands off when your setup says a retro is due), or whenever you ask: reads how its work went, lists earlier retro fixes still open or that did not hold, and proposes at most two changes, preferring a check, hook or tool rule to another instruction. Raises each approved change as a ticket. |
 | `handover` | Only when you run it, before moving work to a new session: lists what this session decided or learned that is not on its tickets yet, writes it once you approve, then replies with a prompt of a few lines that starts the next session from the ticket. Writes no file. |
 
@@ -64,8 +64,8 @@ the plugin.
 /plugin install madison@madison
 ```
 
-Or from a terminal: `claude plugin marketplace add Madison-Inc/skills`, then
-`claude plugin install madison@madison`.
+Or from a terminal, in one command:
+`claude plugin install madison --marketplace Madison-Inc/skills`.
 
 **Cowork**: on the Plugins page, click **+ Add** → **Add marketplace**, enter
 `Madison-Inc/skills`, turn **Sync automatically** off and click **Sync**. Then, on the
